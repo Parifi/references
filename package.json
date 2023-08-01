@@ -1,6 +1,6 @@
 {
   "name": "@parifi/references",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Parifi utilities for working with references for other repos inside of the organization.",
   "private": false,
   "files": [

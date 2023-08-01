@@ -6,6 +6,7 @@ import {
   ERC20ABI,
   GnosisSafeABI,
   ParifiForwarderABI,
+  DataFabricABI,
 } from './abi';
 
 export type ContractName =
@@ -25,6 +26,10 @@ export const contracts = {
     PriceFeed: {
       address: '',
       abi: PriceFeedABI,
+    },
+    DataFabric: {
+      address: '',
+      abi: DataFabricABI,
     },
     ERC20: {
       address: '',
@@ -52,6 +57,10 @@ export const contracts = {
       address: '',
       abi: PriceFeedABI,
     },
+    DataFabric: {
+      address: '',
+      abi: DataFabricABI,
+    },
     ERC20: {
       address: '',
       abi: ERC20ABI,
@@ -77,6 +86,10 @@ export const contracts = {
     PriceFeed: {
       address: '0x385fa322735E40Ce6780148E7E318702596A1eb3',
       abi: PriceFeedABI,
+    },
+    DataFabric: {
+      address: '0xC2e2dB44532EfbCBDB02A097eAf5F06B97aeBb54',
+      abi: DataFabricABI,
     },
     ERC20: {
       address: '',
