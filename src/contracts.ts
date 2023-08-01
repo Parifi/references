@@ -1,5 +1,20 @@
 import { Chain } from './chain';
-import { MarketVaultABI, OrderManagerABI, PriceFeedABI } from './abi';
+import {
+  MarketVaultABI,
+  OrderManagerABI,
+  PriceFeedABI,
+  ERC20ABI,
+  GnosisSafeABI,
+  ParifiForwarderABI,
+} from './abi';
+
+export type ContractName =
+  | 'OrderManager'
+  | 'PriceFeed'
+  | 'ParifiForwarder'
+  | 'ERC20'
+  | 'Safe'
+  | 'MarketVault';
 
 export const contracts = {
   [Chain.POLYGON]: {
@@ -7,14 +22,25 @@ export const contracts = {
       address: '',
       abi: OrderManagerABI,
     },
-
     PriceFeed: {
       address: '',
       abi: PriceFeedABI,
     },
+    ERC20: {
+      address: '',
+      abi: ERC20ABI,
+    },
     MarketVault: {
       address: '',
       abi: MarketVaultABI,
+    },
+    ParifiForwarder: {
+      address: '',
+      abi: ParifiForwarderABI,
+    },
+    Safe: {
+      address: '',
+      abi: GnosisSafeABI,
     },
   },
   [Chain.ARBITRUM]: {
@@ -26,9 +52,21 @@ export const contracts = {
       address: '',
       abi: PriceFeedABI,
     },
+    ERC20: {
+      address: '',
+      abi: ERC20ABI,
+    },
     MarketVault: {
       address: '',
       abi: MarketVaultABI,
+    },
+    ParifiForwarder: {
+      address: '',
+      abi: ParifiForwarderABI,
+    },
+    Safe: {
+      address: '',
+      abi: GnosisSafeABI,
     },
   },
   [Chain.ARBITRUM_GOERLI]: {
@@ -40,9 +78,21 @@ export const contracts = {
       address: '0x385fa322735E40Ce6780148E7E318702596A1eb3',
       abi: PriceFeedABI,
     },
+    ERC20: {
+      address: '',
+      abi: ERC20ABI,
+    },
     MarketVault: {
       address: '',
       abi: MarketVaultABI,
+    },
+    ParifiForwarder: {
+      address: '0xccF03eEd16e4195c341c4D1A9c4AE9f5E6552739',
+      abi: ParifiForwarderABI,
+    },
+    Safe: {
+      address: '0x60B03968F6fCB3aaFa13aC6f6277C912AF79822D',
+      abi: GnosisSafeABI,
     },
   },
 };

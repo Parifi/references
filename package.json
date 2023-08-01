@@ -1,6 +1,6 @@
 {
   "name": "@parifi/references",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Parifi utilities for working with references for other repos inside of the organization.",
   "private": false,
   "files": [
@@ -18,7 +18,6 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsup ./src"
   },
   "keywords": [
