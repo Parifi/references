@@ -2,6 +2,7 @@
   "name": "@parifi/references",
   "version": "0.0.1",
   "description": "",
+  "private": false,
   "files": [
     "dist",
     "package.json"
