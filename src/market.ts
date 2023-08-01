@@ -1,3 +1,5 @@
+import { encodeAbiParameters, keccak256, parseAbiParameters } from 'viem';
+
 export const availableVaults: `0x${string}`[] = [
   '0x3768acf8deBE88EEB9C759839692d0d19Fe045Ec',
   '0x221606c90190b82979A4C1E69B4AC7B47621a8a2',
@@ -18,3 +20,27 @@ export function usedVaultsBySymbol(token?: string): string {
     ? usedVaultsBySymbol[token]
     : usedVaultsBySymbol[availableVaults[0]];
 }
+
+export const collateralDecimals: Record<string, number> = {
+  ETH: 18,
+  USDC: 6,
+  BTC: 8,
+  LINK: 18,
+};
+
+export const availableMarketsByEncoded = ['ETH', 'BTC', 'LINK'].reduce<
+  Record<string, string>
+>((reverseMarkets, m) => {
+  ['ETH', 'USDC'].forEach((c) => {
+    const encoded = keccak256(
+      encodeAbiParameters(parseAbiParameters('string, address'), [
+        `${m}-${c}`,
+        usedVaults[c],
+      ]),
+    );
+
+    reverseMarkets[encoded] = `${m}-${c}`;
+  });
+
+  return reverseMarkets;
+}, {});
