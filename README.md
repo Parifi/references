@@ -1,2 +1,2 @@
-# contracts
-Parifi contracts abstracted into a single repository so it can be used by multiple entities
+# @parifi/references
+Parifi utilities for working with references for other repos inside of the organization.
