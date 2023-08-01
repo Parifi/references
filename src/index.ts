@@ -10,3 +10,4 @@ export * from './priceIds';
 export * from './collateralByNetwork';
 export * from './availableVaults';
 export * from './coingeckoIdBySymbol';
+export * from './chainNameById';
