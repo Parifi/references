@@ -12,6 +12,7 @@ import {
 export type ContractName =
   | 'OrderManager'
   | 'PriceFeed'
+  | 'DataFabric'
   | 'ParifiForwarder'
   | 'ERC20'
   | 'Safe'
