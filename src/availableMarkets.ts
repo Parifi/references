@@ -1,4 +1,5 @@
 import { encodeAbiParameters, keccak256, parseAbiParameters } from 'viem';
+import { usedVaults } from '.';
 
 export const usedMarkets = ['ETH', 'BTC', 'LINK'];
 
@@ -7,11 +8,6 @@ export const collateralDecimals: Record<string, number> = {
   USDC: 6,
   BTC: 8,
   LINK: 18,
-};
-
-export const usedVaults: Record<string, `0x${string}`> = {
-  ETH: '0x3768acf8deBE88EEB9C759839692d0d19Fe045Ec',
-  USDC: '0x221606c90190b82979A4C1E69B4AC7B47621a8a2',
 };
 
 const reverseMarkets: Record<string, string> = {};
