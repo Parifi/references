@@ -1,4 +1,4 @@
-import { encodePacked, keccak256 } from 'viem';
+import { encodeAbiParameters, keccak256, parseAbiParameters } from 'viem';
 
 export function calculateOrderId(
   marketId: `0x${string}`,
@@ -8,8 +8,8 @@ export function calculateOrderId(
   sequence: bigint,
 ) {
   return keccak256(
-    encodePacked(
-      ['bytes32', 'address', 'address', 'bool', 'uint256'],
+    encodeAbiParameters(
+      parseAbiParameters('bytes32, address, address, bool, uint256'),
       [marketId, marketAddress, userAddress, isLong, sequence],
     ),
   );

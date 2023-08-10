@@ -1,4 +1,4 @@
-import { encodePacked, keccak256 } from 'viem';
+import { encodeAbiParameters, keccak256, parseAbiParameters } from 'viem';
 
 export function calculatePositionId(
   marketId: `0x${string}`,
@@ -9,9 +9,11 @@ export function calculatePositionId(
   if (!userAddress) return '';
 
   return keccak256(
-    encodePacked(
-      ['bytes32', 'address', 'address', 'bool'],
-      [marketId, marketAddress, userAddress, isLong],
-    ),
+    encodeAbiParameters(parseAbiParameters('bytes32, address, address, bool'), [
+      marketId,
+      marketAddress,
+      userAddress,
+      isLong,
+    ]),
   );
 }
