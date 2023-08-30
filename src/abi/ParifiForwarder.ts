@@ -22,6 +22,16 @@ export const ParifiForwarderABI = [
   },
   {
     inputs: [],
+    name: 'InsufficientGas',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'InvalidGasPrice',
+    type: 'error',
+  },
+  {
+    inputs: [],
     name: 'InvalidNonce',
     type: 'error',
   },
@@ -59,6 +69,11 @@ export const ParifiForwarderABI = [
   {
     inputs: [],
     name: 'InvalidTxValue',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'OrderExpired',
     type: 'error',
   },
   {
@@ -267,7 +282,17 @@ export const ParifiForwarderABI = [
           },
           {
             internalType: 'uint256',
+            name: 'maxGasPrice',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
             name: 'userNonce',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'txDeadline',
             type: 'uint256',
           },
           {
@@ -276,7 +301,7 @@ export const ParifiForwarderABI = [
             type: 'bytes',
           },
         ],
-        internalType: 'struct PariFiForwarder.Transaction',
+        internalType: 'struct ParifiForwarder.Transaction',
         name: 'transaction',
         type: 'tuple',
       },
@@ -556,7 +581,17 @@ export const ParifiForwarderABI = [
           },
           {
             internalType: 'uint256',
+            name: 'maxGasPrice',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
             name: 'userNonce',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'txDeadline',
             type: 'uint256',
           },
           {
@@ -565,7 +600,7 @@ export const ParifiForwarderABI = [
             type: 'bytes',
           },
         ],
-        internalType: 'struct PariFiForwarder.Transaction',
+        internalType: 'struct ParifiForwarder.Transaction',
         name: 'transaction',
         type: 'tuple',
       },

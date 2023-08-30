@@ -32,33 +32,12 @@ export const OrderManagerABI = [
   },
   {
     inputs: [],
-    name: 'ExistingOrder',
-    type: 'error',
-  },
-  {
-    inputs: [],
     name: 'ExistingPosition',
     type: 'error',
   },
   {
     inputs: [],
     name: 'InactiveMarket',
-    type: 'error',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'uint256',
-        name: 'required',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'available',
-        type: 'uint256',
-      },
-    ],
-    name: 'InsufficientAssets',
     type: 'error',
   },
   {
@@ -73,12 +52,7 @@ export const OrderManagerABI = [
   },
   {
     inputs: [],
-    name: 'InvalidMarketAddress',
-    type: 'error',
-  },
-  {
-    inputs: [],
-    name: 'InvalidMarketId',
+    name: 'InvalidMarketDecimals',
     type: 'error',
   },
   {
@@ -109,7 +83,7 @@ export const OrderManagerABI = [
   },
   {
     inputs: [],
-    name: 'InvalidToken',
+    name: 'InvalidTimestamp',
     type: 'error',
   },
   {
@@ -120,11 +94,6 @@ export const OrderManagerABI = [
   {
     inputs: [],
     name: 'LiquidationErrorNoLoss',
-    type: 'error',
-  },
-  {
-    inputs: [],
-    name: 'MarketIsActive',
     type: 'error',
   },
   {
@@ -225,45 +194,6 @@ export const OrderManagerABI = [
       },
     ],
     name: 'FeesDeductedFromPosition',
-    type: 'event',
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: 'bytes32',
-        name: 'marketId',
-        type: 'bytes32',
-      },
-    ],
-    name: 'MarketAdded',
-    type: 'event',
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: 'bytes32',
-        name: 'marketId',
-        type: 'bytes32',
-      },
-    ],
-    name: 'MarketStatusToggled',
-    type: 'event',
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: 'bytes32',
-        name: 'marketId',
-        type: 'bytes32',
-      },
-    ],
-    name: 'MarketUpdated',
     type: 'event',
   },
   {
@@ -516,86 +446,6 @@ export const OrderManagerABI = [
     inputs: [
       {
         internalType: 'bytes32',
-        name: '_marketId',
-        type: 'bytes32',
-      },
-      {
-        components: [
-          {
-            internalType: 'bytes32',
-            name: 'marketId',
-            type: 'bytes32',
-          },
-          {
-            internalType: 'address',
-            name: 'marketAddress',
-            type: 'address',
-          },
-          {
-            internalType: 'address',
-            name: 'depositToken',
-            type: 'address',
-          },
-          {
-            internalType: 'bool',
-            name: 'isLive',
-            type: 'bool',
-          },
-          {
-            internalType: 'uint256',
-            name: 'liquidationThreshold',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'minCollateral',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'maxLeverage',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'openingFee',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'closingFee',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'liquidationFee',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'allowedPriceDeviation',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'maxPriceDeviation',
-            type: 'uint256',
-          },
-        ],
-        internalType: 'struct OrderDS.Market',
-        name: '_newMarket',
-        type: 'tuple',
-      },
-    ],
-    name: 'addNewMarket',
-    outputs: [],
-    stateMutability: 'nonpayable',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'bytes32',
         name: '_positionId',
         type: 'bytes32',
       },
@@ -732,7 +582,7 @@ export const OrderManagerABI = [
         type: 'address',
       },
     ],
-    name: 'createOrder',
+    name: 'createNewPosition',
     outputs: [],
     stateMutability: 'nonpayable',
     type: 'function',
@@ -742,7 +592,7 @@ export const OrderManagerABI = [
     name: 'dataFabric',
     outputs: [
       {
-        internalType: 'contract IDataFabric',
+        internalType: 'contract DataFabric',
         name: '',
         type: 'address',
       },
@@ -785,121 +635,20 @@ export const OrderManagerABI = [
   {
     inputs: [
       {
-        internalType: 'bytes32',
-        name: 'marketId',
-        type: 'bytes32',
+        internalType: 'address',
+        name: 'userAddress',
+        type: 'address',
       },
     ],
-    name: 'getMarket',
+    name: 'getOrderIdForUser',
     outputs: [
       {
-        components: [
-          {
-            internalType: 'bytes32',
-            name: 'marketId',
-            type: 'bytes32',
-          },
-          {
-            internalType: 'address',
-            name: 'marketAddress',
-            type: 'address',
-          },
-          {
-            internalType: 'address',
-            name: 'depositToken',
-            type: 'address',
-          },
-          {
-            internalType: 'bool',
-            name: 'isLive',
-            type: 'bool',
-          },
-          {
-            internalType: 'uint256',
-            name: 'liquidationThreshold',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'minCollateral',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'maxLeverage',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'openingFee',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'closingFee',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'liquidationFee',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'allowedPriceDeviation',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'maxPriceDeviation',
-            type: 'uint256',
-          },
-        ],
-        internalType: 'struct OrderDS.Market',
-        name: 'marketDetails',
-        type: 'tuple',
+        internalType: 'bytes32',
+        name: 'orderId',
+        type: 'bytes32',
       },
     ],
     stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'bytes32',
-        name: '_marketId',
-        type: 'bytes32',
-      },
-      {
-        internalType: 'address',
-        name: '_marketAddress',
-        type: 'address',
-      },
-      {
-        internalType: 'address',
-        name: '_userAddress',
-        type: 'address',
-      },
-      {
-        internalType: 'bool',
-        name: '_isLong',
-        type: 'bool',
-      },
-      {
-        internalType: 'uint256',
-        name: '_sequence',
-        type: 'uint256',
-      },
-    ],
-    name: 'getOrderId',
-    outputs: [
-      {
-        internalType: 'bytes32',
-        name: '',
-        type: 'bytes32',
-      },
-    ],
-    stateMutability: 'pure',
     type: 'function',
   },
   {
@@ -1052,46 +801,12 @@ export const OrderManagerABI = [
   {
     inputs: [
       {
-        internalType: 'bytes32',
-        name: '_marketId',
-        type: 'bytes32',
-      },
-      {
         internalType: 'address',
-        name: '_marketAddress',
+        name: 'userAddress',
         type: 'address',
       },
-      {
-        internalType: 'address',
-        name: '_userAddress',
-        type: 'address',
-      },
-      {
-        internalType: 'bool',
-        name: '_isLong',
-        type: 'bool',
-      },
     ],
-    name: 'getPositionId',
-    outputs: [
-      {
-        internalType: 'bytes32',
-        name: '',
-        type: 'bytes32',
-      },
-    ],
-    stateMutability: 'pure',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'bytes32',
-        name: '_orderId',
-        type: 'bytes32',
-      },
-    ],
-    name: 'getPositionIdFromOrderId',
+    name: 'getPositionIdForUser',
     outputs: [
       {
         internalType: 'bytes32',
@@ -1236,6 +951,105 @@ export const OrderManagerABI = [
     type: 'function',
   },
   {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'positionId',
+        type: 'bytes32',
+      },
+      {
+        components: [
+          {
+            internalType: 'bytes32',
+            name: 'orderId',
+            type: 'bytes32',
+          },
+          {
+            internalType: 'bytes32',
+            name: 'marketId',
+            type: 'bytes32',
+          },
+          {
+            internalType: 'address',
+            name: 'userAddress',
+            type: 'address',
+          },
+          {
+            internalType: 'enum OrderDS.OrderType',
+            name: 'orderType',
+            type: 'uint8',
+          },
+          {
+            internalType: 'bool',
+            name: 'isLong',
+            type: 'bool',
+          },
+          {
+            internalType: 'bool',
+            name: 'isLimitOrder',
+            type: 'bool',
+          },
+          {
+            internalType: 'bool',
+            name: 'triggerAbove',
+            type: 'bool',
+          },
+          {
+            internalType: 'uint256',
+            name: 'deadline',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'collateralAmount',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'orderSize',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'expectedPrice',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'maxSlippage',
+            type: 'uint256',
+          },
+        ],
+        internalType: 'struct OrderDS.Order',
+        name: '_order',
+        type: 'tuple',
+      },
+    ],
+    name: 'modifyPosition',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
+    name: 'orderNonce',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
     inputs: [],
     name: 'partnerFee',
     outputs: [
@@ -1263,6 +1077,25 @@ export const OrderManagerABI = [
         internalType: 'bool',
         name: '',
         type: 'bool',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
+    name: 'positionNonce',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
       },
     ],
     stateMutability: 'view',
@@ -1326,101 +1159,8 @@ export const OrderManagerABI = [
     type: 'function',
   },
   {
-    inputs: [
-      {
-        internalType: 'bytes32',
-        name: '_marketId',
-        type: 'bytes32',
-      },
-    ],
-    name: 'toggleMarketStatus',
-    outputs: [],
-    stateMutability: 'nonpayable',
-    type: 'function',
-  },
-  {
     inputs: [],
     name: 'unpause',
-    outputs: [],
-    stateMutability: 'nonpayable',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'bytes32',
-        name: '_marketId',
-        type: 'bytes32',
-      },
-      {
-        components: [
-          {
-            internalType: 'bytes32',
-            name: 'marketId',
-            type: 'bytes32',
-          },
-          {
-            internalType: 'address',
-            name: 'marketAddress',
-            type: 'address',
-          },
-          {
-            internalType: 'address',
-            name: 'depositToken',
-            type: 'address',
-          },
-          {
-            internalType: 'bool',
-            name: 'isLive',
-            type: 'bool',
-          },
-          {
-            internalType: 'uint256',
-            name: 'liquidationThreshold',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'minCollateral',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'maxLeverage',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'openingFee',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'closingFee',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'liquidationFee',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'allowedPriceDeviation',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'maxPriceDeviation',
-            type: 'uint256',
-          },
-        ],
-        internalType: 'struct OrderDS.Market',
-        name: '_updatedMarket',
-        type: 'tuple',
-      },
-    ],
-    name: 'updateExistingMarket',
     outputs: [],
     stateMutability: 'nonpayable',
     type: 'function',

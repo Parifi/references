@@ -22,11 +22,6 @@ export const PriceFeedABI = [
   },
   {
     inputs: [],
-    name: 'IncompatiblePriceFeed',
-    type: 'error',
-  },
-  {
-    inputs: [],
     name: 'InvalidMarketDecimals',
     type: 'error',
   },
@@ -114,25 +109,6 @@ export const PriceFeedABI = [
       },
       {
         indexed: false,
-        internalType: 'address',
-        name: 'feedAddress',
-        type: 'address',
-      },
-    ],
-    name: 'MarketFeedUpdatedChainlink',
-    type: 'event',
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: 'bytes32',
-        name: 'marketId',
-        type: 'bytes32',
-      },
-      {
-        indexed: false,
         internalType: 'bytes32',
         name: 'priceId',
         type: 'bytes32',
@@ -165,25 +141,6 @@ export const PriceFeedABI = [
       },
     ],
     name: 'SequencerUptimeStatusUpdated',
-    type: 'event',
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: 'address',
-        name: 'tokenAddress',
-        type: 'address',
-      },
-      {
-        indexed: false,
-        internalType: 'address',
-        name: 'feedAddress',
-        type: 'address',
-      },
-    ],
-    name: 'TokenFeedUpdatedChainlink',
     type: 'event',
   },
   {
@@ -367,30 +324,6 @@ export const PriceFeedABI = [
         type: 'bytes32',
       },
     ],
-    name: 'getMarketPriceChainlink',
-    outputs: [
-      {
-        internalType: 'uint256',
-        name: 'marketPriceUsd',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'priceTimestamp',
-        type: 'uint256',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'bytes32',
-        name: 'marketId',
-        type: 'bytes32',
-      },
-    ],
     name: 'getMarketPricePrimary',
     outputs: [
       {
@@ -439,7 +372,7 @@ export const PriceFeedABI = [
         type: 'bytes32',
       },
     ],
-    name: 'getMarketPriceSecondary',
+    name: 'getMarketPricePythEMA',
     outputs: [
       {
         internalType: 'uint256',
@@ -458,16 +391,16 @@ export const PriceFeedABI = [
   {
     inputs: [
       {
-        internalType: 'address',
-        name: 'tokenAddress',
-        type: 'address',
+        internalType: 'bytes32',
+        name: 'marketId',
+        type: 'bytes32',
       },
     ],
-    name: 'getTokenPriceChainlink',
+    name: 'getMarketPriceSecondary',
     outputs: [
       {
         internalType: 'uint256',
-        name: 'tokenPriceUsd',
+        name: 'marketPriceUsd',
         type: 'uint256',
       },
       {
@@ -535,6 +468,30 @@ export const PriceFeedABI = [
         type: 'address',
       },
     ],
+    name: 'getTokenPricePythEMA',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'tokenPriceUsd',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'priceTimestamp',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'tokenAddress',
+        type: 'address',
+      },
+    ],
     name: 'getTokenPriceSecondary',
     outputs: [
       {
@@ -565,25 +522,6 @@ export const PriceFeedABI = [
         internalType: 'uint8',
         name: '',
         type: 'uint8',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'bytes32',
-        name: '',
-        type: 'bytes32',
-      },
-    ],
-    name: 'marketToChainlinkFeed',
-    outputs: [
-      {
-        internalType: 'address',
-        name: '',
-        type: 'address',
       },
     ],
     stateMutability: 'view',
@@ -660,25 +598,6 @@ export const PriceFeedABI = [
         type: 'address',
       },
     ],
-    name: 'tokenToChainlinkFeed',
-    outputs: [
-      {
-        internalType: 'address',
-        name: '',
-        type: 'address',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'address',
-        name: '',
-        type: 'address',
-      },
-    ],
     name: 'tokenToPythPriceId',
     outputs: [
       {
@@ -717,6 +636,30 @@ export const PriceFeedABI = [
   {
     inputs: [
       {
+        internalType: 'bytes32',
+        name: 'marketId',
+        type: 'bytes32',
+      },
+      {
+        internalType: 'bytes[]',
+        name: 'priceUpdateData',
+        type: 'bytes[]',
+      },
+    ],
+    name: 'updateAndGetMarketPriceEMA',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'marketPriceUsd',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
         internalType: 'address',
         name: 'tokenAddress',
         type: 'address',
@@ -742,30 +685,23 @@ export const PriceFeedABI = [
     inputs: [
       {
         internalType: 'address',
-        name: 'feedAddress',
+        name: 'tokenAddress',
         type: 'address',
       },
-    ],
-    name: 'updateChainlinkSequencerUptimeFeed',
-    outputs: [],
-    stateMutability: 'nonpayable',
-    type: 'function',
-  },
-  {
-    inputs: [
       {
-        internalType: 'bytes32',
-        name: 'marketId',
-        type: 'bytes32',
-      },
-      {
-        internalType: 'address',
-        name: 'feedAddress',
-        type: 'address',
+        internalType: 'bytes[]',
+        name: 'priceUpdateData',
+        type: 'bytes[]',
       },
     ],
-    name: 'updateMarketFeedChainlink',
-    outputs: [],
+    name: 'updateAndGetTokenPriceEMA',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'tokenPriceUsd',
+        type: 'uint256',
+      },
+    ],
     stateMutability: 'nonpayable',
     type: 'function',
   },
@@ -809,24 +745,6 @@ export const PriceFeedABI = [
       },
     ],
     name: 'updateSequencerUptimeStatus',
-    outputs: [],
-    stateMutability: 'nonpayable',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'address',
-        name: 'tokenAddress',
-        type: 'address',
-      },
-      {
-        internalType: 'address',
-        name: 'feedAddress',
-        type: 'address',
-      },
-    ],
-    name: 'updateTokenFeedChainlink',
     outputs: [],
     stateMutability: 'nonpayable',
     type: 'function',

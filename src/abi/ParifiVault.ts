@@ -22,6 +22,11 @@ export const ParifiVaultABI = [
         type: 'uint256',
       },
       {
+        internalType: 'uint256',
+        name: '_minimumDepositPeriod',
+        type: 'uint256',
+      },
+      {
         internalType: 'address',
         name: '_rbac',
         type: 'address',
@@ -64,6 +69,16 @@ export const ParifiVaultABI = [
   {
     inputs: [],
     name: 'MaxFee',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'MaxOI',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'MinimumDepositPeriod',
     type: 'error',
   },
   {
@@ -138,6 +153,19 @@ export const ParifiVaultABI = [
       },
     ],
     name: 'FeeManagerUpdated',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: '_maxVaultOi',
+        type: 'uint256',
+      },
+    ],
+    name: 'MaxVaultOpenInterestUpdated',
     type: 'event',
   },
   {
@@ -510,6 +538,25 @@ export const ParifiVaultABI = [
         type: 'address',
       },
     ],
+    name: 'lastDepositedTimestamp',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
     name: 'maxDeposit',
     outputs: [
       {
@@ -549,6 +596,19 @@ export const ParifiVaultABI = [
       },
     ],
     name: 'maxRedeem',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'maxVaultOpenInterest',
     outputs: [
       {
         internalType: 'uint256',
@@ -767,6 +827,19 @@ export const ParifiVaultABI = [
     type: 'function',
   },
   {
+    inputs: [
+      {
+        internalType: 'uint256',
+        name: '_maxVaultOi',
+        type: 'uint256',
+      },
+    ],
+    name: 'setMaximumVaultOpenInterest',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
     inputs: [],
     name: 'symbol',
     outputs: [
@@ -882,6 +955,24 @@ export const ParifiVaultABI = [
     inputs: [
       {
         internalType: 'uint256',
+        name: 'amountUSD',
+        type: 'uint256',
+      },
+      {
+        internalType: 'bool',
+        name: 'isIncrease',
+        type: 'bool',
+      },
+    ],
+    name: 'updateVaultOpenInterest',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'uint256',
         name: '_fee',
         type: 'uint256',
       },
@@ -889,6 +980,19 @@ export const ParifiVaultABI = [
     name: 'updateWithdrawalFee',
     outputs: [],
     stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'vaultOpenInterest',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
     type: 'function',
   },
   {
