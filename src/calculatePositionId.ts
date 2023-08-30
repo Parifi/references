@@ -1,19 +1,11 @@
 import { encodeAbiParameters, keccak256, parseAbiParameters } from 'viem';
 
-export function calculatePositionId(
-  marketId: `0x${string}`,
-  marketAddress: `0x${string}`,
-  userAddress: `0x${string}` | undefined,
-  isLong: boolean,
-) {
-  if (!userAddress) return '';
-
+export function calculatePositionId(userAddress: `0x${string}`, nonce: bigint) {
   return keccak256(
-    encodeAbiParameters(parseAbiParameters('bytes32, address, address, bool'), [
-      marketId,
-      marketAddress,
+    encodeAbiParameters(parseAbiParameters('string, address, uint256'), [
+      'POS',
       userAddress,
-      isLong,
+      nonce,
     ]),
   );
 }
