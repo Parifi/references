@@ -1,20 +1,20 @@
 import { encodeAbiParameters, keccak256, parseAbiParameters } from 'viem';
 import { Collateral } from './collateral';
 
-export const availableVaults: `0x${string}`[] = [
-  '0x3768acf8deBE88EEB9C759839692d0d19Fe045Ec',
-  '0x221606c90190b82979A4C1E69B4AC7B47621a8a2',
+export const availableVaults: [`0x${string}`, `0x${string}`] = [
+  '0x5594E145DBA45A82F298d454b2947b38C5aF492C',
+  '0x7e46557fC7E08838a7896dc1F075861D03F5a71C',
 ];
 
 export const usedVaults: Record<string, `0x${string}`> = {
-  ETH: '0x3768acf8deBE88EEB9C759839692d0d19Fe045Ec',
-  USDC: '0x221606c90190b82979A4C1E69B4AC7B47621a8a2',
+  ETH: availableVaults[0],
+  USDC: availableVaults[1],
 };
 
 export function usedVaultsBySymbol(token?: string): string {
   const usedVaultsBySymbol: Record<string, string> = {
-    '0x3768acf8deBE88EEB9C759839692d0d19Fe045Ec': 'ETH',
-    '0x221606c90190b82979A4C1E69B4AC7B47621a8a2': 'USDC',
+    [availableVaults[0]]: 'ETH',
+    [availableVaults[1]]: 'USDC',
   };
 
   return token
