@@ -1,4 +1,4 @@
-export const MarketVaultABI = [
+export const ParifiVaultABI = [
   {
     inputs: [
       {

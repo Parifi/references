@@ -1,6 +1,6 @@
 import { Chain } from './chain';
 import {
-  MarketVaultABI,
+  ParifiVaultABI,
   OrderManagerABI,
   PriceFeedABI,
   ERC20ABI,
@@ -16,9 +16,39 @@ export type ContractName =
   | 'ParifiForwarder'
   | 'ERC20'
   | 'Safe'
-  | 'MarketVault';
+  | 'ParifiVault';
 
 export const contracts = {
+  [Chain.BASE]: {
+    OrderManager: {
+      address: '',
+      abi: OrderManagerABI,
+    },
+    PriceFeed: {
+      address: '',
+      abi: PriceFeedABI,
+    },
+    DataFabric: {
+      address: '',
+      abi: DataFabricABI,
+    },
+    ERC20: {
+      address: '',
+      abi: ERC20ABI,
+    },
+    ParifiVault: {
+      address: '',
+      abi: ParifiVaultABI,
+    },
+    ParifiForwarder: {
+      address: '',
+      abi: ParifiForwarderABI,
+    },
+    Safe: {
+      address: '',
+      abi: GnosisSafeABI,
+    },
+  },
   [Chain.POLYGON]: {
     OrderManager: {
       address: '',
@@ -36,9 +66,9 @@ export const contracts = {
       address: '',
       abi: ERC20ABI,
     },
-    MarketVault: {
+    ParifiVault: {
       address: '',
-      abi: MarketVaultABI,
+      abi: ParifiVaultABI,
     },
     ParifiForwarder: {
       address: '',
@@ -66,9 +96,9 @@ export const contracts = {
       address: '',
       abi: ERC20ABI,
     },
-    MarketVault: {
+    ParifiVault: {
       address: '',
-      abi: MarketVaultABI,
+      abi: ParifiVaultABI,
     },
     ParifiForwarder: {
       address: '',
@@ -96,9 +126,9 @@ export const contracts = {
       address: '',
       abi: ERC20ABI,
     },
-    MarketVault: {
+    ParifiVault: {
       address: '',
-      abi: MarketVaultABI,
+      abi: ParifiVaultABI,
     },
     ParifiForwarder: {
       address: '0xccF03eEd16e4195c341c4D1A9c4AE9f5E6552739',

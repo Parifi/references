@@ -1,6 +1,6 @@
 import { OrderManagerABI } from './OrderManager';
 import { PriceFeedABI } from './PriceFeed';
-import { MarketVaultABI } from './MarketVault';
+import { ParifiVaultABI } from './ParifiVault';
 import { GnosisFactoryABI } from './GnosisFactory';
 import { GnosisSafeABI } from './GnosisSafe';
 import { Multicall } from './Multicall';
@@ -13,7 +13,7 @@ export {
   DataFabricABI,
   ERC20ABI,
   PriceFeedABI,
-  MarketVaultABI,
+  ParifiVaultABI,
   GnosisFactoryABI,
   GnosisSafeABI,
   Multicall,

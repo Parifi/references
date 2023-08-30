@@ -10,4 +10,5 @@ export const chainNameById: Record<Chain, string> = {
   [Chain.ARBITRUM]: 'arbitrum-one',
   [Chain.ARBITRUM_GOERLI]: 'arbitrum-goerli',
   [Chain.POLYGON]: 'polygon',
+  [Chain.BASE]: 'base',
 };

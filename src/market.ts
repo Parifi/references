@@ -1,4 +1,5 @@
 import { encodeAbiParameters, keccak256, parseAbiParameters } from 'viem';
+import { Collateral } from './collateral';
 
 export const availableVaults: `0x${string}`[] = [
   '0x3768acf8deBE88EEB9C759839692d0d19Fe045Ec',
@@ -31,7 +32,7 @@ export const collateralDecimals: Record<string, number> = {
 export const availableMarketsByEncoded = ['ETH', 'BTC', 'LINK'].reduce<
   Record<string, string>
 >((reverseMarkets, m) => {
-  ['ETH', 'USDC'].forEach((c) => {
+  Object.values(Collateral).forEach((c) => {
     const encoded = keccak256(
       encodeAbiParameters(parseAbiParameters('string, address'), [
         `${m}-${c}`,
