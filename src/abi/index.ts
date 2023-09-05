@@ -7,8 +7,10 @@ import { Multicall } from './Multicall';
 import { ERC20ABI } from './ERC20';
 import { ParifiForwarderABI } from './ParifiForwarder';
 import { DataFabricABI } from './DataFabric';
+import { FeeManagerABI } from './FeeManager';
 
 export {
+  FeeManagerABI,
   OrderManagerABI,
   DataFabricABI,
   ERC20ABI,

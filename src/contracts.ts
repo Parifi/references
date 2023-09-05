@@ -7,6 +7,7 @@ import {
   GnosisSafeABI,
   ParifiForwarderABI,
   DataFabricABI,
+  FeeManagerABI,
 } from './abi';
 
 export type ContractName =
@@ -14,6 +15,7 @@ export type ContractName =
   | 'PriceFeed'
   | 'DataFabric'
   | 'ParifiForwarder'
+  | 'FeeManager'
   | 'ERC20'
   | 'Safe'
   | 'ParifiVault';
@@ -23,6 +25,10 @@ export const contracts = {
     OrderManager: {
       address: '',
       abi: OrderManagerABI,
+    },
+    FeeManager: {
+      address: '',
+      abi: FeeManagerABI,
     },
     PriceFeed: {
       address: '',
@@ -54,6 +60,10 @@ export const contracts = {
       address: '',
       abi: OrderManagerABI,
     },
+    FeeManager: {
+      address: '',
+      abi: FeeManagerABI,
+    },
     PriceFeed: {
       address: '',
       abi: PriceFeedABI,
@@ -84,6 +94,10 @@ export const contracts = {
       address: '',
       abi: OrderManagerABI,
     },
+    FeeManager: {
+      address: '',
+      abi: FeeManagerABI,
+    },
     PriceFeed: {
       address: '',
       abi: PriceFeedABI,
@@ -113,6 +127,10 @@ export const contracts = {
     OrderManager: {
       address: '0x12b9036fe005BBbF4aB610c44CEC1F187a66fd7A',
       abi: OrderManagerABI,
+    },
+    FeeManager: {
+      address: '0x84D335885Ffd1804E7ccA0Ba43C4aBF40639aFA6',
+      abi: FeeManagerABI,
     },
     PriceFeed: {
       address: '0x69A1eCFeEE171EF31457B6F3a99081D09fA6d9E5',
