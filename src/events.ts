@@ -15,6 +15,14 @@ export enum PositionEvents {
   POSITION_UPDATED = 'PositionUpdated',
 }
 
+export enum FeeEvents {
+  FEES_DISTRIBUTED = 'FeesDistributed',
+  FEE_DISTRIBUTION_UPDATED = 'FeeDistributionUpdated',
+  LP_FEE_RECEIVER_UPDATED = 'LpFeeReceiverUpdated',
+  PROTOCOL_FEE_RECEIVER_UPDATED = 'ProtocolFeeReceiverUpdated',
+  TOKEN_CHUNK_SIZE_UPDATED = 'TokenChunkSizeUpdated',
+}
+
 export enum MarketEvents {
   MARKET_ADDED = 'MarketAdded',
   MARKET_UPDATED = 'MarketUpdated',
