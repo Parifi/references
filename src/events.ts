@@ -26,7 +26,8 @@ export enum FeeEvents {
 export enum MarketEvents {
   MARKET_ADDED = 'MarketAdded',
   MARKET_UPDATED = 'MarketUpdated',
-  MARKET_TOGGLED = 'MarketStatusToggled',
+  MARKET_PAUSED = 'MarketPaused',
+  MARKET_UNPAUSED = 'MarketUnpaused',
   PARTNER_FEE_DEPOSITED = 'PartnerFeeDeposited',
   PARTNER_FEE_UPDATED = 'PartnerFeeUpdated',
   CUMULATIVE_FEE_UPDATED = 'CumulativeFeeUpdated',
