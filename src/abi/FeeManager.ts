@@ -37,6 +37,25 @@ export const FeeManagerABI = [
       {
         indexed: false,
         internalType: 'uint256',
+        name: 'oldDelay',
+        type: 'uint256',
+      },
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: 'newDelay',
+        type: 'uint256',
+      },
+    ],
+    name: 'DelayUpdated',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: 'uint256',
         name: 'lpShare',
         type: 'uint256',
       },
@@ -145,6 +164,19 @@ export const FeeManagerABI = [
     type: 'event',
   },
   {
+    inputs: [],
+    name: 'delay',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
     inputs: [
       {
         internalType: 'address',
@@ -207,6 +239,19 @@ export const FeeManagerABI = [
       },
     ],
     stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'uint256',
+        name: '_delay',
+        type: 'uint256',
+      },
+    ],
+    name: 'setDistributeFeesDelay',
+    outputs: [],
+    stateMutability: 'nonpayable',
     type: 'function',
   },
   {

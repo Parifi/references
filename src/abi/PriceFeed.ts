@@ -53,11 +53,6 @@ export const PriceFeedABI = [
   },
   {
     inputs: [],
-    name: 'PriceOutdated',
-    type: 'error',
-  },
-  {
-    inputs: [],
     name: 'SequencerDown',
     type: 'error',
   },
@@ -223,6 +218,30 @@ export const PriceFeedABI = [
   {
     inputs: [
       {
+        internalType: 'bytes32',
+        name: 'marketId',
+        type: 'bytes32',
+      },
+      {
+        internalType: 'uint256',
+        name: 'amount',
+        type: 'uint256',
+      },
+    ],
+    name: 'convertMarketToUsd',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'amountUsd',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
         internalType: 'address',
         name: 'tokenA',
         type: 'address',
@@ -272,6 +291,30 @@ export const PriceFeedABI = [
       {
         internalType: 'uint256',
         name: 'amountB',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'tokenAddress',
+        type: 'address',
+      },
+      {
+        internalType: 'uint256',
+        name: 'amount',
+        type: 'uint256',
+      },
+    ],
+    name: 'convertTokenToUsd',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'amountUsd',
         type: 'uint256',
       },
     ],
@@ -331,11 +374,6 @@ export const PriceFeedABI = [
         name: 'marketPriceUsd',
         type: 'uint256',
       },
-      {
-        internalType: 'uint256',
-        name: 'priceTimestamp',
-        type: 'uint256',
-      },
     ],
     stateMutability: 'view',
     type: 'function',
@@ -353,11 +391,6 @@ export const PriceFeedABI = [
       {
         internalType: 'uint256',
         name: 'marketPriceUsd',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'priceTimestamp',
         type: 'uint256',
       },
     ],
@@ -379,11 +412,6 @@ export const PriceFeedABI = [
         name: 'marketPriceUsd',
         type: 'uint256',
       },
-      {
-        internalType: 'uint256',
-        name: 'priceTimestamp',
-        type: 'uint256',
-      },
     ],
     stateMutability: 'view',
     type: 'function',
@@ -401,11 +429,6 @@ export const PriceFeedABI = [
       {
         internalType: 'uint256',
         name: 'marketPriceUsd',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'priceTimestamp',
         type: 'uint256',
       },
     ],
@@ -427,11 +450,6 @@ export const PriceFeedABI = [
         name: 'tokenPriceUsd',
         type: 'uint256',
       },
-      {
-        internalType: 'uint256',
-        name: 'priceTimestamp',
-        type: 'uint256',
-      },
     ],
     stateMutability: 'view',
     type: 'function',
@@ -449,11 +467,6 @@ export const PriceFeedABI = [
       {
         internalType: 'uint256',
         name: 'tokenPriceUsd',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'priceTimestamp',
         type: 'uint256',
       },
     ],
@@ -475,11 +488,6 @@ export const PriceFeedABI = [
         name: 'tokenPriceUsd',
         type: 'uint256',
       },
-      {
-        internalType: 'uint256',
-        name: 'priceTimestamp',
-        type: 'uint256',
-      },
     ],
     stateMutability: 'view',
     type: 'function',
@@ -499,9 +507,17 @@ export const PriceFeedABI = [
         name: 'tokenPriceUsd',
         type: 'uint256',
       },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'getValidTimePeriod',
+    outputs: [
       {
         internalType: 'uint256',
-        name: 'priceTimestamp',
+        name: '',
         type: 'uint256',
       },
     ],

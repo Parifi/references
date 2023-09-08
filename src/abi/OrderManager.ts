@@ -52,11 +52,6 @@ export const OrderManagerABI = [
   },
   {
     inputs: [],
-    name: 'InvalidMarketDecimals',
-    type: 'error',
-  },
-  {
-    inputs: [],
     name: 'InvalidOrderType',
     type: 'error',
   },
@@ -436,6 +431,45 @@ export const OrderManagerABI = [
       {
         internalType: 'uint256',
         name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: '_positionId',
+        type: 'bytes32',
+      },
+      {
+        internalType: 'bytes32',
+        name: '_marketId',
+        type: 'bytes32',
+      },
+      {
+        internalType: 'uint256',
+        name: '_size',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: '_collateralAmount',
+        type: 'uint256',
+      },
+      {
+        internalType: 'enum OrderDS.OrderType',
+        name: 'orderType',
+        type: 'uint8',
+      },
+    ],
+    name: 'calculateLeverage',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'leverage',
         type: 'uint256',
       },
     ],

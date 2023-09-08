@@ -125,19 +125,19 @@ export const contracts = {
   },
   [Chain.ARBITRUM_GOERLI]: {
     OrderManager: {
-      address: '0x12b9036fe005BBbF4aB610c44CEC1F187a66fd7A',
+      address: '0xC314D98545779892E84F838B473e5894ccce72D1',
       abi: OrderManagerABI,
     },
     FeeManager: {
-      address: '0x84D335885Ffd1804E7ccA0Ba43C4aBF40639aFA6',
+      address: '0x4818579e5206aeC5B4E10d91c552a356BF3a099C',
       abi: FeeManagerABI,
     },
     PriceFeed: {
-      address: '0x69A1eCFeEE171EF31457B6F3a99081D09fA6d9E5',
+      address: '0x4452f28c64414D456D3A8a8750C32CAcA430433f',
       abi: PriceFeedABI,
     },
     DataFabric: {
-      address: '0x88BE0768d6B52E23f0a63a912bf6206852E495F0',
+      address: '0x0d9550380f195e8cFcb635E1F85838B2835DdaE4',
       abi: DataFabricABI,
     },
     ERC20: {
@@ -149,7 +149,7 @@ export const contracts = {
       abi: ParifiVaultABI,
     },
     ParifiForwarder: {
-      address: '0x0ed5FC4Cd701414FCb02299Fb000bd3583aF91F0',
+      address: '0x1FC261ceb18AFB466F9d718011AFb38397503782',
       abi: ParifiForwarderABI,
     },
     Safe: {
