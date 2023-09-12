@@ -28,6 +28,7 @@ export enum MarketEvents {
   MARKET_UPDATED = 'MarketUpdated',
   MARKET_PAUSED = 'MarketPaused',
   MARKET_UNPAUSED = 'MarketUnpaused',
+  MAX_OI_UPDATED = 'MaxOiUpdated',
   PARTNER_FEE_DEPOSITED = 'PartnerFeeDeposited',
   PARTNER_FEE_UPDATED = 'PartnerFeeUpdated',
   CUMULATIVE_FEE_UPDATED = 'CumulativeFeeUpdated',
