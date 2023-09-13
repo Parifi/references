@@ -73,6 +73,12 @@ export const FeeManagerABI = [
     anonymous: false,
     inputs: [
       {
+        indexed: true,
+        internalType: 'address',
+        name: 'token',
+        type: 'address',
+      },
+      {
         indexed: false,
         internalType: 'uint256',
         name: 'lpAmount',

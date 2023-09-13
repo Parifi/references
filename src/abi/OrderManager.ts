@@ -358,6 +358,18 @@ export const OrderManagerABI = [
         name: 'balanceReceived',
         type: 'uint256',
       },
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: 'liquidationPrice',
+        type: 'uint256',
+      },
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: 'lossInCollateral',
+        type: 'uint256',
+      },
     ],
     name: 'PositionLiquidated',
     type: 'event',
