@@ -2,7 +2,7 @@ import { encodeAbiParameters, keccak256, parseAbiParameters } from 'viem';
 import { Collateral } from './collateral';
 
 export const availableVaults: [`0x${string}`, `0x${string}`] = [
-  '0x0d9550380f195e8cFcb635E1F85838B2835DdaE4', // ETH
+  '0xBbE9C254A4B5795aFD57630ed32385Ff1D3a5DE8', // ETH
   '0x8d51c2d812f5436a2a0E330670C66514fb22f7AE', // USDC
 ];
 
@@ -30,6 +30,8 @@ export const collateralDecimals: Record<string, number> = {
   ARB: 18,
   MATIC: 18,
 };
+
+console.log(usedVaults);
 
 export const availableMarketsByEncoded = [
   'ETH',
