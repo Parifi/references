@@ -31,8 +31,6 @@ export const collateralDecimals: Record<string, number> = {
   MATIC: 18,
 };
 
-console.log(usedVaults);
-
 export const availableMarketsByEncoded = [
   'ETH',
   'BTC',
