@@ -163,13 +163,25 @@ export const OrderManagerABI = [
     anonymous: false,
     inputs: [
       {
+        indexed: false,
+        internalType: 'bytes32',
+        name: 'orderId',
+        type: 'bytes32',
+      },
+      {
         indexed: true,
         internalType: 'address',
-        name: 'newFeeManager',
+        name: 'token',
         type: 'address',
       },
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: 'amount',
+        type: 'uint256',
+      },
     ],
-    name: 'FeeManagerUpdated',
+    name: 'ExecutionFeeReceived',
     type: 'event',
   },
   {
@@ -177,18 +189,12 @@ export const OrderManagerABI = [
     inputs: [
       {
         indexed: true,
-        internalType: 'bytes32',
-        name: 'positionId',
-        type: 'bytes32',
-      },
-      {
-        indexed: false,
-        internalType: 'uint256',
-        name: 'feeAmount',
-        type: 'uint256',
+        internalType: 'address',
+        name: 'newFeeManager',
+        type: 'address',
       },
     ],
-    name: 'FeesDeductedFromPosition',
+    name: 'FeeManagerUpdated',
     type: 'event',
   },
   {
@@ -637,6 +643,11 @@ export const OrderManagerABI = [
             name: 'maxSlippage',
             type: 'uint256',
           },
+          {
+            internalType: 'uint256',
+            name: 'executionFee',
+            type: 'uint256',
+          },
         ],
         internalType: 'struct OrderDS.Order',
         name: '_order',
@@ -782,6 +793,11 @@ export const OrderManagerABI = [
           {
             internalType: 'uint256',
             name: 'maxSlippage',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'executionFee',
             type: 'uint256',
           },
         ],
@@ -1068,6 +1084,11 @@ export const OrderManagerABI = [
           {
             internalType: 'uint256',
             name: 'maxSlippage',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'executionFee',
             type: 'uint256',
           },
         ],
