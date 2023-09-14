@@ -381,11 +381,6 @@ export const DataFabricABI = [
       {
         components: [
           {
-            internalType: 'bytes32',
-            name: 'marketId',
-            type: 'bytes32',
-          },
-          {
             internalType: 'address',
             name: 'vaultAddress',
             type: 'address',
@@ -655,11 +650,6 @@ export const DataFabricABI = [
     outputs: [
       {
         components: [
-          {
-            internalType: 'bytes32',
-            name: 'marketId',
-            type: 'bytes32',
-          },
           {
             internalType: 'address',
             name: 'vaultAddress',
@@ -1295,11 +1285,6 @@ export const DataFabricABI = [
       },
       {
         components: [
-          {
-            internalType: 'bytes32',
-            name: 'marketId',
-            type: 'bytes32',
-          },
           {
             internalType: 'address',
             name: 'vaultAddress',

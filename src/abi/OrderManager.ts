@@ -328,6 +328,31 @@ export const OrderManagerABI = [
     anonymous: false,
     inputs: [
       {
+        indexed: false,
+        internalType: 'bytes32',
+        name: 'positionId',
+        type: 'bytes32',
+      },
+      {
+        indexed: false,
+        internalType: 'bool',
+        name: 'isProfit',
+        type: 'bool',
+      },
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: 'realizedPnl',
+        type: 'uint256',
+      },
+    ],
+    name: 'PnlRealized',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
         indexed: true,
         internalType: 'bytes32',
         name: 'positionId',
@@ -559,11 +584,6 @@ export const OrderManagerABI = [
         components: [
           {
             internalType: 'bytes32',
-            name: 'orderId',
-            type: 'bytes32',
-          },
-          {
-            internalType: 'bytes32',
             name: 'marketId',
             type: 'bytes32',
           },
@@ -711,11 +731,6 @@ export const OrderManagerABI = [
         components: [
           {
             internalType: 'bytes32',
-            name: 'orderId',
-            type: 'bytes32',
-          },
-          {
-            internalType: 'bytes32',
             name: 'marketId',
             type: 'bytes32',
           },
@@ -790,11 +805,6 @@ export const OrderManagerABI = [
     outputs: [
       {
         components: [
-          {
-            internalType: 'bytes32',
-            name: 'positionId',
-            type: 'bytes32',
-          },
           {
             internalType: 'bytes32',
             name: 'marketId',
@@ -1005,11 +1015,6 @@ export const OrderManagerABI = [
       },
       {
         components: [
-          {
-            internalType: 'bytes32',
-            name: 'orderId',
-            type: 'bytes32',
-          },
           {
             internalType: 'bytes32',
             name: 'marketId',
