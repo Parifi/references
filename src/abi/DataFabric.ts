@@ -43,12 +43,22 @@ export const DataFabricABI = [
   },
   {
     inputs: [],
+    name: 'InvalidValue',
+    type: 'error',
+  },
+  {
+    inputs: [],
     name: 'InvalidVaultAddress',
     type: 'error',
   },
   {
     inputs: [],
     name: 'MarketIsActive',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'MaxFee',
     type: 'error',
   },
   {

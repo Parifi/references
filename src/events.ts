@@ -13,6 +13,7 @@ export enum PositionEvents {
   POSITION_CLOSED = 'PositionClosed',
   POSITION_LIQUIDATED = 'PositionLiquidated',
   POSITION_UPDATED = 'PositionUpdated',
+  PNL_REALIZED = 'PnlRealized',
 }
 
 export enum FeeEvents {

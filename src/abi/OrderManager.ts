@@ -163,7 +163,7 @@ export const OrderManagerABI = [
     anonymous: false,
     inputs: [
       {
-        indexed: false,
+        indexed: true,
         internalType: 'bytes32',
         name: 'orderId',
         type: 'bytes32',
@@ -334,7 +334,7 @@ export const OrderManagerABI = [
     anonymous: false,
     inputs: [
       {
-        indexed: false,
+        indexed: true,
         internalType: 'bytes32',
         name: 'positionId',
         type: 'bytes32',
@@ -348,7 +348,13 @@ export const OrderManagerABI = [
       {
         indexed: false,
         internalType: 'uint256',
-        name: 'realizedPnl',
+        name: 'pnlInCollateral',
+        type: 'uint256',
+      },
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: 'executionPrice',
         type: 'uint256',
       },
     ],
@@ -523,40 +529,6 @@ export const OrderManagerABI = [
     inputs: [
       {
         internalType: 'bytes32',
-        name: '_positionId',
-        type: 'bytes32',
-      },
-      {
-        internalType: 'bytes32',
-        name: '_marketId',
-        type: 'bytes32',
-      },
-      {
-        internalType: 'uint256',
-        name: '_size',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: '_collateralAmount',
-        type: 'uint256',
-      },
-    ],
-    name: 'calculateLeverage',
-    outputs: [
-      {
-        internalType: 'uint256',
-        name: 'leverage',
-        type: 'uint256',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'bytes32',
         name: '_orderId',
         type: 'bytes32',
       },
@@ -704,6 +676,50 @@ export const OrderManagerABI = [
         internalType: 'uint256',
         name: 'accruedBorrowFees',
         type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'positionId',
+        type: 'bytes32',
+      },
+      {
+        internalType: 'uint256',
+        name: 'executionPrice',
+        type: 'uint256',
+      },
+      {
+        internalType: 'bytes32',
+        name: 'marketId',
+        type: 'bytes32',
+      },
+      {
+        internalType: 'bool',
+        name: 'isLong',
+        type: 'bool',
+      },
+      {
+        internalType: 'bool',
+        name: 'isIncrease',
+        type: 'bool',
+      },
+    ],
+    name: 'getClosingNetPNLInCollateral',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'netProfitOrLoss',
+        type: 'uint256',
+      },
+      {
+        internalType: 'bool',
+        name: 'isNetProfit',
+        type: 'bool',
       },
     ],
     stateMutability: 'view',
@@ -884,6 +900,40 @@ export const OrderManagerABI = [
         internalType: 'bytes32',
         name: 'positionId',
         type: 'bytes32',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'uint256',
+        name: 'currentPrice',
+        type: 'uint256',
+      },
+      {
+        internalType: 'bytes32',
+        name: 'marketId',
+        type: 'bytes32',
+      },
+      {
+        internalType: 'bool',
+        name: 'isLong',
+        type: 'bool',
+      },
+      {
+        internalType: 'bool',
+        name: 'isIncrease',
+        type: 'bool',
+      },
+    ],
+    name: 'getPriceWithDeviation',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'updatedPrice',
+        type: 'uint256',
       },
     ],
     stateMutability: 'view',
