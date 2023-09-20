@@ -684,50 +684,6 @@ export const OrderManagerABI = [
   {
     inputs: [
       {
-        internalType: 'bytes32',
-        name: 'positionId',
-        type: 'bytes32',
-      },
-      {
-        internalType: 'uint256',
-        name: 'executionPrice',
-        type: 'uint256',
-      },
-      {
-        internalType: 'bytes32',
-        name: 'marketId',
-        type: 'bytes32',
-      },
-      {
-        internalType: 'bool',
-        name: 'isLong',
-        type: 'bool',
-      },
-      {
-        internalType: 'bool',
-        name: 'isIncrease',
-        type: 'bool',
-      },
-    ],
-    name: 'getClosingNetPNLInCollateral',
-    outputs: [
-      {
-        internalType: 'uint256',
-        name: 'netProfitOrLoss',
-        type: 'uint256',
-      },
-      {
-        internalType: 'bool',
-        name: 'isNetProfit',
-        type: 'bool',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
         internalType: 'address',
         name: 'userAddress',
         type: 'address',
@@ -908,61 +864,17 @@ export const OrderManagerABI = [
   {
     inputs: [
       {
-        internalType: 'uint256',
-        name: 'currentPrice',
-        type: 'uint256',
-      },
-      {
         internalType: 'bytes32',
-        name: 'marketId',
+        name: '_orderId',
         type: 'bytes32',
       },
-      {
-        internalType: 'bool',
-        name: 'isLong',
-        type: 'bool',
-      },
-      {
-        internalType: 'bool',
-        name: 'isIncrease',
-        type: 'bool',
-      },
     ],
-    name: 'getPriceWithDeviation',
+    name: 'getPositionIdFromOrderId',
     outputs: [
-      {
-        internalType: 'uint256',
-        name: 'updatedPrice',
-        type: 'uint256',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [
       {
         internalType: 'bytes32',
-        name: '_positionId',
+        name: '',
         type: 'bytes32',
-      },
-      {
-        internalType: 'uint256',
-        name: '_executionPrice',
-        type: 'uint256',
-      },
-    ],
-    name: 'getProfitOrLossInCollateral',
-    outputs: [
-      {
-        internalType: 'uint256',
-        name: 'profitOrLoss',
-        type: 'uint256',
-      },
-      {
-        internalType: 'bool',
-        name: 'isProfit',
-        type: 'bool',
       },
     ],
     stateMutability: 'view',

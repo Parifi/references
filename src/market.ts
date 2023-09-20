@@ -2,8 +2,8 @@ import { encodeAbiParameters, keccak256, parseAbiParameters } from 'viem';
 import { Collateral } from './collateral';
 
 export const availableVaults: [`0x${string}`, `0x${string}`] = [
-  '0x8A76d760614A9d0a8167958f4a8710B8a400A1EB', // ETH
-  '0xa98B7c2aAdE34d12ECd36Cd790bF41A2ec88CCA7', // USDC
+  '0x09C8BD4D33c3507c178A014a7d5d259E7371A99B', // ETH
+  '0xb122073354C698652Bb72882E6310c649F6307F2', // USDC
 ];
 
 export const usedVaults: Record<string, `0x${string}`> = {

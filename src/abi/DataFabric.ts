@@ -732,6 +732,92 @@ export const DataFabricABI = [
         type: 'bytes32',
       },
     ],
+    name: 'getMarketConfig',
+    outputs: [
+      {
+        components: [
+          {
+            internalType: 'uint256',
+            name: 'maximumOi',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'totalLongs',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'totalShorts',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'feeLastUpdatedTimestamp',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'baseCoeff',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'baseConst',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'baseFeeCumulative',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'dynamicCoeff',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'maxDynamicBorrowFee',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'dynamicLongFeeCumulative',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'dynamicShortFeeCumulative',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'deviationCoeff',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'deviationConst',
+            type: 'uint256',
+          },
+        ],
+        internalType: 'struct DataFabric.MarketConfig',
+        name: 'config',
+        type: 'tuple',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'marketId',
+        type: 'bytes32',
+      },
+    ],
     name: 'getMarketData',
     outputs: [
       {

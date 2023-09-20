@@ -724,6 +724,19 @@ export const PriceFeedABI = [
   {
     inputs: [
       {
+        internalType: 'address',
+        name: '_sequencerUptimeFeed',
+        type: 'address',
+      },
+    ],
+    name: 'updateChainlinkSequencerUptimeFeed',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
         internalType: 'bytes32',
         name: 'marketId',
         type: 'bytes32',
