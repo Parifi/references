@@ -8,9 +8,11 @@ import { ERC20ABI } from './ERC20';
 import { ParifiForwarderABI } from './ParifiForwarder';
 import { DataFabricABI } from './DataFabric';
 import { FeeManagerABI } from './FeeManager';
+import { AdapterABI } from './Adapter';
 
 export {
   FeeManagerABI,
+  AdapterABI,
   OrderManagerABI,
   DataFabricABI,
   ERC20ABI,

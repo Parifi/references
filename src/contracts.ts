@@ -8,6 +8,7 @@ import {
   ParifiForwarderABI,
   DataFabricABI,
   FeeManagerABI,
+  AdapterABI,
 } from './abi';
 
 export type ContractName =
@@ -18,10 +19,15 @@ export type ContractName =
   | 'FeeManager'
   | 'ERC20'
   | 'Safe'
+  | 'Adapter'
   | 'ParifiVault';
 
 export const contracts = {
   [Chain.BASE]: {
+    Adapter: {
+      address: '',
+      abi: AdapterABI,
+    },
     OrderManager: {
       address: '',
       abi: OrderManagerABI,
@@ -56,6 +62,10 @@ export const contracts = {
     },
   },
   [Chain.POLYGON]: {
+    Adapter: {
+      address: '',
+      abi: AdapterABI,
+    },
     OrderManager: {
       address: '',
       abi: OrderManagerABI,
@@ -90,6 +100,10 @@ export const contracts = {
     },
   },
   [Chain.ARBITRUM]: {
+    Adapter: {
+      address: '',
+      abi: AdapterABI,
+    },
     OrderManager: {
       address: '',
       abi: OrderManagerABI,
@@ -124,6 +138,10 @@ export const contracts = {
     },
   },
   [Chain.ARBITRUM_GOERLI]: {
+    Adapter: {
+      address: '0x3b2F7155694CC373b7E0AD7715995fDb6971d79C',
+      abi: AdapterABI,
+    },
     OrderManager: {
       address: '0xBd4865378710Ee92E32854754b120DE9856879b7',
       abi: OrderManagerABI,
