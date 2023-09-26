@@ -1,27 +1,39 @@
 import { encodeAbiParameters, keccak256, parseAbiParameters } from 'viem';
 import { Collateral } from './collateral';
+import { Chain } from './chain';
 
 export const markets: string[] = ['ETH', 'BTC', 'LINK', 'ARB', 'OP', 'MATIC'];
 
-export const availableVaults: [`0x${string}`, `0x${string}`] = [
-  '0x09C8BD4D33c3507c178A014a7d5d259E7371A99B', // ETH
-  '0xb122073354C698652Bb72882E6310c649F6307F2', // USDC
-];
-
-export const usedVaults: Record<string, `0x${string}`> = {
-  ETH: availableVaults[0],
-  USDC: availableVaults[1],
+export const availableVaultsPerChain: Record<Chain, `0x${string}`[]> = {
+  [Chain.ARBITRUM_GOERLI]: [
+    '0x09C8BD4D33c3507c178A014a7d5d259E7371A99B', // ETH
+    '0xb122073354C698652Bb72882E6310c649F6307F2', // USDC
+  ],
+  [Chain.POLYGON]: [],
+  [Chain.ARBITRUM]: [],
+  [Chain.BASE]: [],
 };
 
-export function usedVaultsBySymbol(token?: string): string {
+export const usedVaultsPerChain: Record<
+  Chain,
+  Record<string, `0x${string}`>
+> = {
+  [Chain.ARBITRUM_GOERLI]: {
+    ETH: availableVaultsPerChain[Chain.ARBITRUM_GOERLI][0],
+    USDC: availableVaultsPerChain[Chain.ARBITRUM_GOERLI][1],
+  },
+  [Chain.POLYGON]: {},
+  [Chain.ARBITRUM]: {},
+  [Chain.BASE]: {},
+};
+
+export function usedVaultsBySymbol(token: string): string {
   const usedVaultsBySymbol: Record<string, string> = {
-    [availableVaults[0]]: 'ETH',
-    [availableVaults[1]]: 'USDC',
+    [availableVaultsPerChain[Chain.ARBITRUM_GOERLI][0]]: 'ETH',
+    [availableVaultsPerChain[Chain.ARBITRUM_GOERLI][1]]: 'USDC',
   };
 
-  return token
-    ? usedVaultsBySymbol[token]
-    : usedVaultsBySymbol[availableVaults[0]];
+  return usedVaultsBySymbol[token];
 }
 
 export const suggestedDecimals: Record<string, number> = {
@@ -41,20 +53,30 @@ export const collateralDecimals: Record<string, number> = {
   MATIC: 18,
 };
 
-export const availableMarketsByEncoded = markets.reduce<Record<string, string>>(
-  (reverseMarkets, m) => {
-    Object.values(Collateral).forEach((c) => {
-      const encoded = keccak256(
-        encodeAbiParameters(parseAbiParameters('string, address'), [
-          `${m}-${c}`,
-          usedVaults[c],
-        ]),
-      );
+console.log();
 
-      reverseMarkets[encoded] = `${m}-${c}`;
-    });
+export const availableMarketsByEncodedPerChain: Record<
+  Chain,
+  Record<string, string>
+> = (Object.values(Chain).filter((c) => Number.isInteger(c)) as Chain[]).reduce(
+  (acc, chain) => {
+    acc[chain] = markets.reduce<Record<string, string>>((reverseMarkets, m) => {
+      Object.values(Collateral).forEach((c) => {
+        if (usedVaultsPerChain[chain][c]) {
+          const encoded = keccak256(
+            encodeAbiParameters(parseAbiParameters('string, address'), [
+              `${m}-${c}`,
+              usedVaultsPerChain[chain][c],
+            ]),
+          );
 
-    return reverseMarkets;
+          reverseMarkets[encoded] = `${m}-${c}`;
+        }
+      });
+      return reverseMarkets;
+    }, {});
+
+    return acc;
   },
-  {},
+  {} as Record<Chain, Record<string, string>>,
 );
