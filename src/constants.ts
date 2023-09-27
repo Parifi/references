@@ -1,6 +1,6 @@
 import { Chain } from './chain';
 
-export type TypeOfMarket = 'crypto' | 'fiat' | 'stock' | 'commodity';
+export type TypeOfMarket = 'crypto' | 'forex' | 'stock' | 'commodity';
 export type SymbolOfMarket =
   | 'ETH'
   | 'BTC'
@@ -27,8 +27,8 @@ export const markets: Market[] = [
   { symbol: 'MATIC', type: 'crypto', name: 'Polygon' },
   { symbol: 'XAU', type: 'commodity', name: 'Gold' },
   { symbol: 'XAG', type: 'commodity', name: 'Silver' },
-  { symbol: 'EUR', type: 'fiat', name: 'Euro' },
-  { symbol: 'GBP', type: 'fiat', name: 'Sterling Pound' },
+  { symbol: 'EUR', type: 'forex', name: 'Euro' },
+  { symbol: 'GBP', type: 'forex', name: 'Sterling Pound' },
 ];
 
 export const availableVaultsPerChain: Record<Chain, `0x${string}`[]> = {
