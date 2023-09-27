@@ -2,7 +2,18 @@ import { encodeAbiParameters, keccak256, parseAbiParameters } from 'viem';
 import { Collateral } from './collateral';
 import { Chain } from './chain';
 
-export const markets: string[] = ['ETH', 'BTC', 'LINK', 'ARB', 'OP', 'MATIC'];
+export type TypeOfMarket = 'crypto' | 'fiat' | 'stock' | 'commodity';
+export type SymbolOfMarket = 'ETH' | 'BTC' | 'LINK' | 'ARB' | 'OP' | 'MATIC';
+export type Market = { symbol: SymbolOfMarket; type: TypeOfMarket };
+
+export const markets: Market[] = [
+  { symbol: 'ETH', type: 'crypto' },
+  { symbol: 'BTC', type: 'crypto' },
+  { symbol: 'LINK', type: 'crypto' },
+  { symbol: 'ARB', type: 'crypto' },
+  { symbol: 'OP', type: 'crypto' },
+  { symbol: 'MATIC', type: 'crypto' },
+];
 
 export const availableVaultsPerChain: Record<Chain, `0x${string}`[]> = {
   [Chain.ARBITRUM_GOERLI]: [
@@ -53,8 +64,6 @@ export const collateralDecimals: Record<string, number> = {
   MATIC: 18,
 };
 
-console.log();
-
 export const availableMarketsByEncodedPerChain: Record<
   Chain,
   Record<string, string>
@@ -65,12 +74,12 @@ export const availableMarketsByEncodedPerChain: Record<
         if (usedVaultsPerChain[chain][c]) {
           const encoded = keccak256(
             encodeAbiParameters(parseAbiParameters('string, address'), [
-              `${m}-${c}`,
+              `${m.symbol}-${c}`,
               usedVaultsPerChain[chain][c],
             ]),
           );
 
-          reverseMarkets[encoded] = `${m}-${c}`;
+          reverseMarkets[encoded] = `${m.symbol}-${c}`;
         }
       });
       return reverseMarkets;
