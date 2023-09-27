@@ -4,15 +4,19 @@ import { Chain } from './chain';
 
 export type TypeOfMarket = 'crypto' | 'fiat' | 'stock' | 'commodity';
 export type SymbolOfMarket = 'ETH' | 'BTC' | 'LINK' | 'ARB' | 'OP' | 'MATIC';
-export type Market = { symbol: SymbolOfMarket; type: TypeOfMarket };
+export type Market = {
+  symbol: SymbolOfMarket;
+  type: TypeOfMarket;
+  name: string;
+};
 
 export const markets: Market[] = [
-  { symbol: 'ETH', type: 'crypto' },
-  { symbol: 'BTC', type: 'crypto' },
-  { symbol: 'LINK', type: 'crypto' },
-  { symbol: 'ARB', type: 'crypto' },
-  { symbol: 'OP', type: 'crypto' },
-  { symbol: 'MATIC', type: 'crypto' },
+  { symbol: 'ETH', type: 'crypto', name: 'Ethereum' },
+  { symbol: 'BTC', type: 'crypto', name: 'Bitcoin' },
+  { symbol: 'LINK', type: 'crypto', name: 'Chainlink' },
+  { symbol: 'ARB', type: 'crypto', name: 'Arbitrum' },
+  { symbol: 'OP', type: 'crypto', name: 'Optimism' },
+  { symbol: 'MATIC', type: 'crypto', name: 'Polygon' },
 ];
 
 export const availableVaultsPerChain: Record<Chain, `0x${string}`[]> = {
