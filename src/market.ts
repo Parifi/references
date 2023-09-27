@@ -42,6 +42,15 @@ export const usedVaultsPerChain: Record<
   [Chain.BASE]: {},
 };
 
+export function usedVaultsByName(token: string): string {
+  const usedVaultsByName: Record<string, string> = {
+    [availableVaultsPerChain[Chain.ARBITRUM_GOERLI][0]]: 'Ethereum',
+    [availableVaultsPerChain[Chain.ARBITRUM_GOERLI][1]]: 'USD Coin',
+  };
+
+  return usedVaultsByName[token];
+}
+
 export function usedVaultsBySymbol(token: string): string {
   const usedVaultsBySymbol: Record<string, string> = {
     [availableVaultsPerChain[Chain.ARBITRUM_GOERLI][0]]: 'ETH',
