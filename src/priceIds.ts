@@ -11,9 +11,31 @@ export const priceIdBySymbol: Record<string, string> = {
   GBP: '0x84c2dde9633d93d1bcad84e7dc41c9d56578b7ec52fabedc1f335d673df0a7c1',
 };
 
-// Creating the reverse mapping from priceIdBySymbol
 export const symbolByPriceId: Record<string, string> = Object.entries(
   priceIdBySymbol,
+).reduce(
+  (acc, [symbol, priceId]) => {
+    acc[priceId] = symbol;
+    return acc;
+  },
+  {} as Record<string, string>,
+);
+
+export const priceIdBySymbolTestnet: Record<string, string> = {
+  BTC: '0xf9c0172ba10dfa4d19088d94f5bf61d3b54d5bd7483a322a982e1373ee8ea31b',
+  ETH: '0xca80ba6dc32e08d06f1aa886011eed1d77c77be9eb761cc10d72b7d0a2fd57a6',
+  LINK: '0x83be4ed61dd8a3518d198098ce37240c494710a7b9d85e35d9fceac21df08994',
+  USDC: '0x41f3625971ca2ed2263e78573fe5ce23e13d2558ed3f2e47ab0f84fb9e7ae722',
+  ARB: '0x37f40d2898159e8f2e52b93cb78f47cc3829a31e525ab975c49cc5c5d9176378',
+  MATIC: '0xd2c2c1f2bba8e0964f9589e060c2ee97f5e19057267ac3284caef3bd50bd2cb5',
+  XAU: '0x30a19158f5a54c0adf8fb7560627343f22a1bc852b89d56be1accdc5dbf96d0e',
+  XAG: '0x321ba4d608fa75ba76d6d73daa715abcbdeb9dba02257f05a1b59178b49f599b',
+  EUR: '0xc1b12769f6633798d45adfd62bfc70114839232e2949b01fb3d3f927d2606154',
+  GBP: '0xbcbdc2755bd74a2065f9d3283c2b8acbd898e473bdb90a6764b3dbd467c56ecd',
+};
+
+export const symbolByPriceIdTestnet: Record<string, string> = Object.entries(
+  priceIdBySymbolTestnet,
 ).reduce(
   (acc, [symbol, priceId]) => {
     acc[priceId] = symbol;
