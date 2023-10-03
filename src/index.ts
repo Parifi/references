@@ -10,6 +10,4 @@ export * from './priceIds';
 export * from './collateralByNetwork';
 export * from './coingeckoIdBySymbol';
 export * from './chainNameById';
-export * from './calculatePositionId';
-export * from './calculateOrderId';
 export * from './constants';

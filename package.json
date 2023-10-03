@@ -1,6 +1,6 @@
 {
   "name": "@parifi/references",
-  "version": "0.0.64",
+  "version": "0.0.65",
   "description": "Parifi utilities for working with references for other repos inside of the organization.",
   "private": false,
   "files": [
@@ -30,8 +30,5 @@
     "prettier": "^3.0.0",
     "tsup": "^7.1.0",
     "typescript": "^5.1.6"
-  },
-  "dependencies": {
-    "viem": "^1.5.0"
   }
 }
