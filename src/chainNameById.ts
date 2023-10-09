@@ -4,6 +4,7 @@ export const chainIdByName: Record<string, Chain> = {
   'arbitrum-one': Chain.ARBITRUM,
   'arbitrum-goerli': Chain.ARBITRUM_GOERLI,
   polygon: Chain.POLYGON,
+  base: Chain.BASE,
 };
 
 export const chainNameById: Record<Chain, string> = {

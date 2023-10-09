@@ -143,19 +143,19 @@ export const contracts = {
       abi: AdapterABI,
     },
     OrderManager: {
-      address: '0xBd4865378710Ee92E32854754b120DE9856879b7',
+      address: '0xEC223d77417b724b361BB620517cFC93449BfdBF',
       abi: OrderManagerABI,
     },
     FeeManager: {
-      address: '0xA237E5Aa89e826948691365d46F2f740B7aB88e2',
+      address: '0xBfdB8660eEE0ab21CA10bdFB4DF3CCC3749D1C06',
       abi: FeeManagerABI,
     },
     PriceFeed: {
-      address: '0x183C9ab62E2e819712d732509eabf88449f8A9D3',
+      address: '0xE295AC8B2bC97dBeFB6295F2C8923BA41a390d65',
       abi: PriceFeedABI,
     },
     DataFabric: {
-      address: '0xfF893464D748ef6CEfe6289E9af0817309f8B543',
+      address: '0x60bBE357EDaEAdAa240a84f8663042dEF39128dB',
       abi: DataFabricABI,
     },
     ERC20: {
@@ -167,7 +167,7 @@ export const contracts = {
       abi: ParifiVaultABI,
     },
     ParifiForwarder: {
-      address: '0xc0BEb255DFF785F87CEe9D4eE46c4d25FD6D8B35',
+      address: '0x2F2518bb974D96DC75b2a4E75F94eC49edC36666',
       abi: ParifiForwarderABI,
     },
     Safe: {

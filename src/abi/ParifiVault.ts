@@ -23,7 +23,12 @@ export const ParifiVaultABI = [
       },
       {
         internalType: 'uint256',
-        name: '_minimumDepositPeriod',
+        name: '_cooldownSeconds',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: '_withdrawalWindow',
         type: 'uint256',
       },
       {
@@ -52,6 +57,11 @@ export const ParifiVaultABI = [
   },
   {
     inputs: [],
+    name: 'InsufficientCooldown',
+    type: 'error',
+  },
+  {
+    inputs: [],
     name: 'InvalidAddress',
     type: 'error',
   },
@@ -73,12 +83,17 @@ export const ParifiVaultABI = [
   },
   {
     inputs: [],
-    name: 'MinimumDepositPeriod',
+    name: 'WithdrawalWindowExpired',
     type: 'error',
   },
   {
     inputs: [],
     name: 'ZeroAddress',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'ZeroAmount',
     type: 'error',
   },
   {
@@ -104,6 +119,25 @@ export const ParifiVaultABI = [
       },
     ],
     name: 'Approval',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'user',
+        type: 'address',
+      },
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: 'cooldownEnd',
+        type: 'uint256',
+      },
+    ],
+    name: 'CooldownStarted',
     type: 'event',
   },
   {
@@ -265,6 +299,32 @@ export const ParifiVaultABI = [
     type: 'event',
   },
   {
+    inputs: [],
+    name: 'COOLDOWN_SECONDS',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'WITHDRAWAL_WINDOW',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
     inputs: [
       {
         internalType: 'address',
@@ -380,6 +440,13 @@ export const ParifiVaultABI = [
       },
     ],
     stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'cooldown',
+    outputs: [],
+    stateMutability: 'nonpayable',
     type: 'function',
   },
   {
@@ -521,6 +588,25 @@ export const ParifiVaultABI = [
       },
     ],
     name: 'lastDepositedTimestamp',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
+    name: 'lpCooldowns',
     outputs: [
       {
         internalType: 'uint256',

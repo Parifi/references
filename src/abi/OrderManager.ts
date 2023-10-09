@@ -52,6 +52,16 @@ export const OrderManagerABI = [
   },
   {
     inputs: [],
+    name: 'InvalidMarketDecimals',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'InvalidMarketId',
+    type: 'error',
+  },
+  {
+    inputs: [],
     name: 'InvalidOrderType',
     type: 'error',
   },
@@ -277,6 +287,19 @@ export const OrderManagerABI = [
     anonymous: false,
     inputs: [
       {
+        indexed: true,
+        internalType: 'address',
+        name: 'newPriceFeed',
+        type: 'address',
+      },
+    ],
+    name: 'ParifiPriceFeedUpdated',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
         indexed: false,
         internalType: 'uint256',
         name: 'oldFee',
@@ -354,6 +377,12 @@ export const OrderManagerABI = [
       {
         indexed: false,
         internalType: 'uint256',
+        name: 'feesCharged',
+        type: 'uint256',
+      },
+      {
+        indexed: false,
+        internalType: 'uint256',
         name: 'executionPrice',
         type: 'uint256',
       },
@@ -374,6 +403,12 @@ export const OrderManagerABI = [
         indexed: false,
         internalType: 'uint256',
         name: 'balanceReceived',
+        type: 'uint256',
+      },
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: 'positionSize',
         type: 'uint256',
       },
     ],
@@ -440,19 +475,6 @@ export const OrderManagerABI = [
     anonymous: false,
     inputs: [
       {
-        indexed: true,
-        internalType: 'address',
-        name: 'newPriceFeed',
-        type: 'address',
-      },
-    ],
-    name: 'PriceFeedUpdated',
-    type: 'event',
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
         indexed: false,
         internalType: 'address',
         name: 'account',
@@ -480,45 +502,6 @@ export const OrderManagerABI = [
       {
         internalType: 'uint256',
         name: '',
-        type: 'uint256',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'bytes32',
-        name: '_positionId',
-        type: 'bytes32',
-      },
-      {
-        internalType: 'bytes32',
-        name: '_marketId',
-        type: 'bytes32',
-      },
-      {
-        internalType: 'uint256',
-        name: '_size',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: '_collateralAmount',
-        type: 'uint256',
-      },
-      {
-        internalType: 'enum OrderDS.OrderType',
-        name: 'orderType',
-        type: 'uint8',
-      },
-    ],
-    name: 'calculateLeverage',
-    outputs: [
-      {
-        internalType: 'uint256',
-        name: 'leverage',
         type: 'uint256',
       },
     ],
@@ -597,12 +580,12 @@ export const OrderManagerABI = [
           },
           {
             internalType: 'uint256',
-            name: 'collateralAmount',
+            name: 'deltaCollateral',
             type: 'uint256',
           },
           {
             internalType: 'uint256',
-            name: 'orderSize',
+            name: 'deltaSize',
             type: 'uint256',
           },
           {
@@ -749,12 +732,12 @@ export const OrderManagerABI = [
           },
           {
             internalType: 'uint256',
-            name: 'collateralAmount',
+            name: 'deltaCollateral',
             type: 'uint256',
           },
           {
             internalType: 'uint256',
-            name: 'orderSize',
+            name: 'deltaSize',
             type: 'uint256',
           },
           {
@@ -810,7 +793,7 @@ export const OrderManagerABI = [
           },
           {
             internalType: 'uint256',
-            name: 'collateralAmount',
+            name: 'positionCollateral',
             type: 'uint256',
           },
           {
@@ -1030,12 +1013,12 @@ export const OrderManagerABI = [
           },
           {
             internalType: 'uint256',
-            name: 'collateralAmount',
+            name: 'deltaCollateral',
             type: 'uint256',
           },
           {
             internalType: 'uint256',
-            name: 'orderSize',
+            name: 'deltaSize',
             type: 'uint256',
           },
           {

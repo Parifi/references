@@ -22,6 +22,11 @@ export const DataFabricABI = [
   },
   {
     inputs: [],
+    name: 'InvalidMarketDecimals',
+    type: 'error',
+  },
+  {
+    inputs: [],
     name: 'InvalidMarketId',
     type: 'error',
   },
@@ -70,44 +75,6 @@ export const DataFabricABI = [
     inputs: [],
     name: 'ZeroAddress',
     type: 'error',
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: 'bytes32',
-        name: 'marketId',
-        type: 'bytes32',
-      },
-      {
-        indexed: false,
-        internalType: 'uint256',
-        name: 'newValue',
-        type: 'uint256',
-      },
-    ],
-    name: 'BaseCoeffUpdated',
-    type: 'event',
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: 'bytes32',
-        name: 'marketId',
-        type: 'bytes32',
-      },
-      {
-        indexed: false,
-        internalType: 'uint256',
-        name: 'newValue',
-        type: 'uint256',
-      },
-    ],
-    name: 'BaseConstUpdated',
-    type: 'event',
   },
   {
     anonymous: false,
@@ -192,65 +159,14 @@ export const DataFabricABI = [
         name: 'dynamicShortFeeCumulative',
         type: 'uint256',
       },
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: 'feeLastUpdatedTimestamp',
+        type: 'uint256',
+      },
     ],
     name: 'CumulativeFeeUpdated',
-    type: 'event',
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: 'bytes32',
-        name: 'marketId',
-        type: 'bytes32',
-      },
-      {
-        indexed: false,
-        internalType: 'uint256',
-        name: 'newValue',
-        type: 'uint256',
-      },
-    ],
-    name: 'DeviationCoeffUpdated',
-    type: 'event',
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: 'bytes32',
-        name: 'marketId',
-        type: 'bytes32',
-      },
-      {
-        indexed: false,
-        internalType: 'uint256',
-        name: 'newValue',
-        type: 'uint256',
-      },
-    ],
-    name: 'DeviationConstUpdated',
-    type: 'event',
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: 'bytes32',
-        name: 'marketId',
-        type: 'bytes32',
-      },
-      {
-        indexed: false,
-        internalType: 'uint256',
-        name: 'newValue',
-        type: 'uint256',
-      },
-    ],
-    name: 'DynamicCoeffUpdated',
     type: 'event',
   },
   {
@@ -289,6 +205,31 @@ export const DataFabricABI = [
       },
     ],
     name: 'MarketAdded',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: 'bytes32',
+        name: 'marketId',
+        type: 'bytes32',
+      },
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: 'totalLongs',
+        type: 'uint256',
+      },
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: 'totalShorts',
+        type: 'uint256',
+      },
+    ],
+    name: 'MarketOiUpdated',
     type: 'event',
   },
   {
@@ -342,26 +283,7 @@ export const DataFabricABI = [
       {
         indexed: false,
         internalType: 'uint256',
-        name: 'newValue',
-        type: 'uint256',
-      },
-    ],
-    name: 'MaxDynamicBorrowFeeUpdated',
-    type: 'event',
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: 'bytes32',
-        name: 'marketId',
-        type: 'bytes32',
-      },
-      {
-        indexed: false,
-        internalType: 'uint256',
-        name: 'newValue',
+        name: 'updatedOi',
         type: 'uint256',
       },
     ],
@@ -404,6 +326,11 @@ export const DataFabricABI = [
             internalType: 'bool',
             name: 'isLive',
             type: 'bool',
+          },
+          {
+            internalType: 'uint256',
+            name: 'marketDecimals',
+            type: 'uint256',
           },
           {
             internalType: 'uint256',
@@ -677,6 +604,11 @@ export const DataFabricABI = [
           },
           {
             internalType: 'uint256',
+            name: 'marketDecimals',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
             name: 'liquidationThreshold',
             type: 'uint256',
           },
@@ -937,120 +869,12 @@ export const DataFabricABI = [
         type: 'bytes32',
       },
     ],
-    name: 'getTotalMaximumOi',
-    outputs: [
-      {
-        internalType: 'uint256',
-        name: 'maxOiLongs',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'maxOiShorts',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'totalMaximumOi',
-        type: 'uint256',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'bytes32',
-        name: 'marketId',
-        type: 'bytes32',
-      },
-    ],
     name: 'getVaultAddressForMarket',
     outputs: [
       {
         internalType: 'address',
         name: 'vaultAddress',
         type: 'address',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'bytes32',
-        name: '',
-        type: 'bytes32',
-      },
-    ],
-    name: 'marketConfig',
-    outputs: [
-      {
-        internalType: 'uint256',
-        name: 'maximumOi',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'totalLongs',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'totalShorts',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'feeLastUpdatedTimestamp',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'baseCoeff',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'baseConst',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'baseFeeCumulative',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'dynamicCoeff',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'maxDynamicBorrowFee',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'dynamicLongFeeCumulative',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'dynamicShortFeeCumulative',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'deviationCoeff',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'deviationConst',
-        type: 'uint256',
       },
     ],
     stateMutability: 'view',
@@ -1093,42 +917,6 @@ export const DataFabricABI = [
       },
     ],
     stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'bytes32',
-        name: '_marketId',
-        type: 'bytes32',
-      },
-      {
-        internalType: 'uint256',
-        name: '_baseCoeff',
-        type: 'uint256',
-      },
-    ],
-    name: 'setBaseCoeff',
-    outputs: [],
-    stateMutability: 'nonpayable',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'bytes32',
-        name: '_marketId',
-        type: 'bytes32',
-      },
-      {
-        internalType: 'uint256',
-        name: '_baseConst',
-        type: 'uint256',
-      },
-    ],
-    name: 'setBaseConst',
-    outputs: [],
-    stateMutability: 'nonpayable',
     type: 'function',
   },
   {
@@ -1194,60 +982,6 @@ export const DataFabricABI = [
         name: '_deviationCoeff',
         type: 'uint256',
       },
-    ],
-    name: 'setDeviationCoeff',
-    outputs: [],
-    stateMutability: 'nonpayable',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'bytes32',
-        name: '_marketId',
-        type: 'bytes32',
-      },
-      {
-        internalType: 'uint256',
-        name: '_deviationConst',
-        type: 'uint256',
-      },
-    ],
-    name: 'setDeviationConst',
-    outputs: [],
-    stateMutability: 'nonpayable',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'bytes32',
-        name: '_marketId',
-        type: 'bytes32',
-      },
-      {
-        internalType: 'uint256',
-        name: '_dynamicCoeff',
-        type: 'uint256',
-      },
-    ],
-    name: 'setDynamicCoeff',
-    outputs: [],
-    stateMutability: 'nonpayable',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'bytes32',
-        name: '_marketId',
-        type: 'bytes32',
-      },
-      {
-        internalType: 'uint256',
-        name: '_deviationCoeff',
-        type: 'uint256',
-      },
       {
         internalType: 'uint256',
         name: '_deviationConst',
@@ -1255,24 +989,6 @@ export const DataFabricABI = [
       },
     ],
     name: 'setLiquidityCurveConfig',
-    outputs: [],
-    stateMutability: 'nonpayable',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'bytes32',
-        name: '_marketId',
-        type: 'bytes32',
-      },
-      {
-        internalType: 'uint256',
-        name: '_maxDynamicBorrowFee',
-        type: 'uint256',
-      },
-    ],
-    name: 'setMaximumDynamicBorrowFee',
     outputs: [],
     stateMutability: 'nonpayable',
     type: 'function',
@@ -1395,6 +1111,11 @@ export const DataFabricABI = [
             internalType: 'bool',
             name: 'isLive',
             type: 'bool',
+          },
+          {
+            internalType: 'uint256',
+            name: 'marketDecimals',
+            type: 'uint256',
           },
           {
             internalType: 'uint256',

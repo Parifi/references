@@ -8,6 +8,11 @@ export const PriceFeedABI = [
       },
       {
         internalType: 'address',
+        name: '_dataFabric',
+        type: 'address',
+      },
+      {
+        internalType: 'address',
         name: 'pythContract',
         type: 'address',
       },
@@ -72,25 +77,6 @@ export const PriceFeedABI = [
       },
     ],
     name: 'ChainlinkSequencerUptimeFeedUpdated',
-    type: 'event',
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: 'bytes32',
-        name: 'marketId',
-        type: 'bytes32',
-      },
-      {
-        indexed: false,
-        internalType: 'uint8',
-        name: 'decimals',
-        type: 'uint8',
-      },
-    ],
-    name: 'MarketDecimalsUpdated',
     type: 'event',
   },
   {
@@ -322,6 +308,19 @@ export const PriceFeedABI = [
     type: 'function',
   },
   {
+    inputs: [],
+    name: 'dataFabric',
+    outputs: [
+      {
+        internalType: 'contract DataFabric',
+        name: '',
+        type: 'address',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
     inputs: [
       {
         internalType: 'bytes32',
@@ -532,25 +531,6 @@ export const PriceFeedABI = [
         type: 'bytes32',
       },
     ],
-    name: 'marketDecimals',
-    outputs: [
-      {
-        internalType: 'uint8',
-        name: '',
-        type: 'uint8',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'bytes32',
-        name: '',
-        type: 'bytes32',
-      },
-    ],
     name: 'marketToPythPriceId',
     outputs: [
       {
@@ -586,24 +566,6 @@ export const PriceFeedABI = [
       },
     ],
     stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'bytes32',
-        name: 'marketId',
-        type: 'bytes32',
-      },
-      {
-        internalType: 'uint8',
-        name: 'decimals',
-        type: 'uint8',
-      },
-    ],
-    name: 'setMarketDecimals',
-    outputs: [],
-    stateMutability: 'nonpayable',
     type: 'function',
   },
   {

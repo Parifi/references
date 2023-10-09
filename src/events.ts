@@ -33,4 +33,5 @@ export enum MarketEvents {
   PARTNER_FEE_DEPOSITED = 'PartnerFeeDeposited',
   PARTNER_FEE_UPDATED = 'PartnerFeeUpdated',
   CUMULATIVE_FEE_UPDATED = 'CumulativeFeeUpdated',
+  MARKET_OI_UPDATED = 'MarketOiUpdated',
 }
