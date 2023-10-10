@@ -9,9 +9,11 @@ import { ParifiForwarderABI } from './ParifiForwarder';
 import { DataFabricABI } from './DataFabric';
 import { FeeManagerABI } from './FeeManager';
 import { AdapterABI } from './Adapter';
+import { GelatoABI } from './Gelato';
 
 export {
   FeeManagerABI,
+  GelatoABI,
   AdapterABI,
   OrderManagerABI,
   DataFabricABI,

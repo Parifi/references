@@ -9,6 +9,7 @@ import {
   DataFabricABI,
   FeeManagerABI,
   AdapterABI,
+  GelatoABI,
 } from './abi';
 
 export type ContractName =
@@ -20,7 +21,8 @@ export type ContractName =
   | 'ERC20'
   | 'Safe'
   | 'Adapter'
-  | 'ParifiVault';
+  | 'ParifiVault'
+  | 'Gelato';
 
 export const contracts = {
   [Chain.BASE]: {
@@ -60,6 +62,10 @@ export const contracts = {
       address: '',
       abi: GnosisSafeABI,
     },
+    Gelato: {
+      address: '',
+      abi: GelatoABI,
+    },
   },
   [Chain.POLYGON]: {
     Adapter: {
@@ -97,6 +103,10 @@ export const contracts = {
     Safe: {
       address: '',
       abi: GnosisSafeABI,
+    },
+    Gelato: {
+      address: '',
+      abi: GelatoABI,
     },
   },
   [Chain.ARBITRUM]: {
@@ -136,6 +146,10 @@ export const contracts = {
       address: '',
       abi: GnosisSafeABI,
     },
+    Gelato: {
+      address: '',
+      abi: GelatoABI,
+    },
   },
   [Chain.ARBITRUM_GOERLI]: {
     Adapter: {
@@ -173,6 +187,10 @@ export const contracts = {
     Safe: {
       address: '0x60B03968F6fCB3aaFa13aC6f6277C912AF79822D',
       abi: GnosisSafeABI,
+    },
+    Gelato: {
+      address: '0x75ba5af8effdcfca32e1e288806d54277d1fde99',
+      abi: GelatoABI,
     },
   },
 };
