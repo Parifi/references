@@ -53,6 +53,21 @@ export const AdapterABI = [
       },
       {
         internalType: 'uint256',
+        name: 'deltaSize',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'deltaCollateral',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'feesInCollateral',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
         name: 'marketPrice',
         type: 'uint256',
       },
@@ -81,40 +96,6 @@ export const AdapterABI = [
         internalType: 'contract IDataFabric',
         name: '',
         type: 'address',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'bytes32',
-        name: 'positionId',
-        type: 'bytes32',
-      },
-      {
-        internalType: 'uint256',
-        name: 'executionPrice',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'fee',
-        type: 'uint256',
-      },
-    ],
-    name: 'getClosingNetPNLInCollateral',
-    outputs: [
-      {
-        internalType: 'uint256',
-        name: 'netProfitOrLoss',
-        type: 'uint256',
-      },
-      {
-        internalType: 'bool',
-        name: 'isNetProfit',
-        type: 'bool',
       },
     ],
     stateMutability: 'view',
@@ -172,6 +153,103 @@ export const AdapterABI = [
   {
     inputs: [
       {
+        internalType: 'bytes32',
+        name: 'positionId',
+        type: 'bytes32',
+      },
+      {
+        internalType: 'uint256',
+        name: 'executionPrice',
+        type: 'uint256',
+      },
+    ],
+    name: 'getLiquidationNetPNLInCollateral',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'netProfitOrLoss',
+        type: 'uint256',
+      },
+      {
+        internalType: 'bool',
+        name: 'isNetProfit',
+        type: 'bool',
+      },
+      {
+        internalType: 'bool',
+        name: 'canLiquidate',
+        type: 'bool',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'positionId',
+        type: 'bytes32',
+      },
+      {
+        internalType: 'uint256',
+        name: 'size',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'fee',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'executionPrice',
+        type: 'uint256',
+      },
+      {
+        internalType: 'enum OrderDS.OrderType',
+        name: 'orderType',
+        type: 'uint8',
+      },
+    ],
+    name: 'getNetPNLInCollateral',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'netProfitOrLoss',
+        type: 'uint256',
+      },
+      {
+        internalType: 'bool',
+        name: 'isNetProfit',
+        type: 'bool',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'positionId',
+        type: 'bytes32',
+      },
+    ],
+    name: 'getPositionAccruedBorrowFees',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'accruedBorrowFees',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
         internalType: 'uint256',
         name: 'currentPrice',
         type: 'uint256',
@@ -193,6 +271,45 @@ export const AdapterABI = [
       },
     ],
     name: 'getPriceWithDeviation',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'updatedPrice',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'uint256',
+        name: 'currentPrice',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'deltaSize',
+        type: 'uint256',
+      },
+      {
+        internalType: 'bytes32',
+        name: 'marketId',
+        type: 'bytes32',
+      },
+      {
+        internalType: 'bool',
+        name: 'isLong',
+        type: 'bool',
+      },
+      {
+        internalType: 'bool',
+        name: 'isIncrease',
+        type: 'bool',
+      },
+    ],
+    name: 'getPriceWithDeviationManual',
     outputs: [
       {
         internalType: 'uint256',

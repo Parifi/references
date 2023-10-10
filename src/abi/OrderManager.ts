@@ -475,6 +475,31 @@ export const OrderManagerABI = [
     anonymous: false,
     inputs: [
       {
+        indexed: true,
+        internalType: 'bytes32',
+        name: 'marketId',
+        type: 'bytes32',
+      },
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'tokenAddress',
+        type: 'address',
+      },
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: 'lossAmount',
+        type: 'uint256',
+      },
+    ],
+    name: 'ProtocolLoss',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
         indexed: false,
         internalType: 'address',
         name: 'account',

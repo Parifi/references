@@ -33,8 +33,8 @@ export const markets: Market[] = [
 
 export const availableVaultsPerChain: Record<Chain, `0x${string}`[]> = {
   [Chain.ARBITRUM_GOERLI]: [
-    '0xBEa9e3eB15b7E82C811B54DAA9Bd5225cF44E5C0', // ETH
-    '0xF5d3fDB79AD4e420eCCC9552b707866D7093C014', // USDC
+    '0xEbE0e39D8a5383AcbF866b9baA84F50c5291f05F', // ETH
+    '0xccb7976a4A0d58c966D3fe19E9425300CAC499Be', // USDC
   ],
   [Chain.POLYGON]: [],
   [Chain.ARBITRUM]: [],
