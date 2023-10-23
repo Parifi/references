@@ -144,7 +144,13 @@ export const DataFabricABI = [
       {
         indexed: false,
         internalType: 'uint256',
-        name: 'baseFeeCumulative',
+        name: 'baseFeeCumulativeLongs',
+        type: 'uint256',
+      },
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: 'baseFeeCumulativeShorts',
         type: 'uint256',
       },
       {
@@ -364,11 +370,6 @@ export const DataFabricABI = [
           },
           {
             internalType: 'uint256',
-            name: 'allowedPriceDeviation',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
             name: 'maxPriceDeviation',
             type: 'uint256',
           },
@@ -408,6 +409,11 @@ export const DataFabricABI = [
         internalType: 'bytes32',
         name: 'marketId',
         type: 'bytes32',
+      },
+      {
+        internalType: 'bool',
+        name: 'isLong',
+        type: 'bool',
       },
     ],
     name: 'getBaseBorrowRatePerSecond',
@@ -467,17 +473,22 @@ export const DataFabricABI = [
     outputs: [
       {
         internalType: 'uint256',
-        name: 'baseFeeCumulative',
+        name: 'baseFeeCumulativeLongs',
         type: 'uint256',
       },
       {
         internalType: 'uint256',
-        name: 'dynamicLongFeeCumulative',
+        name: 'baseFeeCumulativeShorts',
         type: 'uint256',
       },
       {
         internalType: 'uint256',
-        name: 'dynamicShortFeeCumulative',
+        name: 'dynamicFeeCumulativeLongs',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'dynamicFeeCumulativeShorts',
         type: 'uint256',
       },
       {
@@ -545,6 +556,40 @@ export const DataFabricABI = [
       {
         internalType: 'uint256',
         name: 'dynamicBorrowRate',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'marketId',
+        type: 'bytes32',
+      },
+      {
+        internalType: 'bool',
+        name: 'isLong',
+        type: 'bool',
+      },
+      {
+        internalType: 'bool',
+        name: 'isIncrease',
+        type: 'bool',
+      },
+      {
+        internalType: 'uint256',
+        name: 'sizeDelta',
+        type: 'uint256',
+      },
+    ],
+    name: 'getExpectedUtilization',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'utilization',
         type: 'uint256',
       },
     ],
@@ -639,11 +684,6 @@ export const DataFabricABI = [
           },
           {
             internalType: 'uint256',
-            name: 'allowedPriceDeviation',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
             name: 'maxPriceDeviation',
             type: 'uint256',
           },
@@ -700,7 +740,12 @@ export const DataFabricABI = [
           },
           {
             internalType: 'uint256',
-            name: 'baseFeeCumulative',
+            name: 'baseFeeCumulativeLongs',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'baseFeeCumulativeShorts',
             type: 'uint256',
           },
           {
@@ -715,12 +760,12 @@ export const DataFabricABI = [
           },
           {
             internalType: 'uint256',
-            name: 'dynamicLongFeeCumulative',
+            name: 'dynamicFeeCumulativeLongs',
             type: 'uint256',
           },
           {
             internalType: 'uint256',
-            name: 'dynamicShortFeeCumulative',
+            name: 'dynamicFeeCumulativeShorts',
             type: 'uint256',
           },
           {
@@ -811,6 +856,11 @@ export const DataFabricABI = [
         name: 'marketId',
         type: 'bytes32',
       },
+      {
+        internalType: 'bool',
+        name: 'isLong',
+        type: 'bool',
+      },
     ],
     name: 'getMarketUtilization',
     outputs: [
@@ -849,12 +899,27 @@ export const DataFabricABI = [
         name: 'marketId',
         type: 'bytes32',
       },
+      {
+        internalType: 'bool',
+        name: 'isLong',
+        type: 'bool',
+      },
+      {
+        internalType: 'bool',
+        name: 'isIncrease',
+        type: 'bool',
+      },
+      {
+        internalType: 'uint256',
+        name: 'sizeDelta',
+        type: 'uint256',
+      },
     ],
     name: 'getPriceDeviation',
     outputs: [
       {
         internalType: 'uint256',
-        name: 'deviationPoints',
+        name: 'deviationPerc',
         type: 'uint256',
       },
     ],
@@ -1145,11 +1210,6 @@ export const DataFabricABI = [
           {
             internalType: 'uint256',
             name: 'liquidationFee',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'allowedPriceDeviation',
             type: 'uint256',
           },
           {

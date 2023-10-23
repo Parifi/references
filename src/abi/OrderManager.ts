@@ -228,6 +228,12 @@ export const OrderManagerABI = [
         name: 'userAddress',
         type: 'address',
       },
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: 'avgPrice',
+        type: 'uint256',
+      },
     ],
     name: 'NewPositionCreated',
     type: 'event',
