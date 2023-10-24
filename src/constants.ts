@@ -78,6 +78,8 @@ export const suggestedDecimals: Record<string, number> = {
   LINK: 4,
   ARB: 4,
   MATIC: 4,
+  EUR: 4,
+  GBP: 4,
 };
 
 export const collateralDecimals: Record<string, number> = {
@@ -89,6 +91,6 @@ export const collateralDecimals: Record<string, number> = {
   MATIC: 18,
   XAU: 18,
   XAG: 18,
-  EUR: 18,
-  GBP: 18,
+  EUR: 8,
+  GBP: 8,
 };
