@@ -11,3 +11,4 @@ export * from './priceIds';
 export * from './collateralByNetwork';
 export * from './chainNameById';
 export * from './constants';
+export * from './isChainTestnet';
