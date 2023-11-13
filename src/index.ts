@@ -12,3 +12,4 @@ export * from './collateralByNetwork';
 export * from './chainNameById';
 export * from './constants';
 export * from './isChainTestnet';
+export * from './notificationType';
