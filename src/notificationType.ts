@@ -7,5 +7,10 @@ export enum NotificationType {
   TAKE_PROFIT_ORDER = 'take-profit-order',
   STOP_LOSS_LIMIT_ORDER = 'stop-loss-limit-order',
   TAKE_PROFIT_LIMIT_ORDER = 'take-profit-limit-order',
-  LIQUIDATION = 'liquidation',
+  CANCEL_ORDER = 'cancel-order',
+  OPEN_POSITION = 'open-position',
+  CLOSE_POSITION = 'close-position',
+  UPDATE_POSITION = 'update-position',
+  LIQUIDATE_POSITION = 'liquidate-position',
+  DEPOSIT = 'deposit',
 }
