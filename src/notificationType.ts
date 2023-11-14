@@ -13,4 +13,5 @@ export enum NotificationType {
   UPDATE_POSITION = 'update-position',
   LIQUIDATE_POSITION = 'liquidate-position',
   DEPOSIT = 'deposit',
+  WITHDRAW = 'withdraw',
 }
