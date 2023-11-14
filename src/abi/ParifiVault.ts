@@ -57,11 +57,6 @@ export const ParifiVaultABI = [
   },
   {
     inputs: [],
-    name: 'InsufficientCooldown',
-    type: 'error',
-  },
-  {
-    inputs: [],
     name: 'InvalidAddress',
     type: 'error',
   },
@@ -79,11 +74,6 @@ export const ParifiVaultABI = [
   {
     inputs: [],
     name: 'MaxFee',
-    type: 'error',
-  },
-  {
-    inputs: [],
-    name: 'WithdrawalWindowExpired',
     type: 'error',
   },
   {
@@ -129,6 +119,12 @@ export const ParifiVaultABI = [
         internalType: 'address',
         name: 'user',
         type: 'address',
+      },
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: 'amount',
+        type: 'uint256',
       },
       {
         indexed: false,
@@ -527,6 +523,37 @@ export const ParifiVaultABI = [
     inputs: [
       {
         internalType: 'address',
+        name: 'user',
+        type: 'address',
+      },
+    ],
+    name: 'getCooldown',
+    outputs: [
+      {
+        components: [
+          {
+            internalType: 'uint256',
+            name: 'amount',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'timestamp',
+            type: 'uint256',
+          },
+        ],
+        internalType: 'struct ParifiVault.Cooldown',
+        name: '',
+        type: 'tuple',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
         name: '_token',
         type: 'address',
       },
@@ -588,25 +615,6 @@ export const ParifiVaultABI = [
       },
     ],
     name: 'lastDepositedTimestamp',
-    outputs: [
-      {
-        internalType: 'uint256',
-        name: '',
-        type: 'uint256',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'address',
-        name: '',
-        type: 'address',
-      },
-    ],
-    name: 'lpCooldowns',
     outputs: [
       {
         internalType: 'uint256',

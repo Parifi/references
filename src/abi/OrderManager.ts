@@ -32,6 +32,11 @@ export const OrderManagerABI = [
   },
   {
     inputs: [],
+    name: 'BelowMinCollateral',
+    type: 'error',
+  },
+  {
+    inputs: [],
     name: 'ExistingPosition',
     type: 'error',
   },
@@ -192,6 +197,25 @@ export const OrderManagerABI = [
       },
     ],
     name: 'ExecutionFeeReceived',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: 'address',
+        name: 'previousReceiver',
+        type: 'address',
+      },
+      {
+        indexed: false,
+        internalType: 'address',
+        name: 'newFeeReceiver',
+        type: 'address',
+      },
+    ],
+    name: 'ExecutionFeeReceiverUpdate',
     type: 'event',
   },
   {
@@ -630,19 +654,14 @@ export const OrderManagerABI = [
             type: 'uint256',
           },
           {
-            internalType: 'uint256',
-            name: 'executionFee',
-            type: 'uint256',
+            internalType: 'address',
+            name: 'partnerAddress',
+            type: 'address',
           },
         ],
         internalType: 'struct OrderDS.Order',
         name: '_order',
         type: 'tuple',
-      },
-      {
-        internalType: 'address',
-        name: 'partner',
-        type: 'address',
       },
     ],
     name: 'createNewPosition',
@@ -656,6 +675,19 @@ export const OrderManagerABI = [
     outputs: [
       {
         internalType: 'contract DataFabric',
+        name: '',
+        type: 'address',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'executionFeeReceiver',
+    outputs: [
+      {
+        internalType: 'address',
         name: '',
         type: 'address',
       },
@@ -782,9 +814,9 @@ export const OrderManagerABI = [
             type: 'uint256',
           },
           {
-            internalType: 'uint256',
-            name: 'executionFee',
-            type: 'uint256',
+            internalType: 'address',
+            name: 'partnerAddress',
+            type: 'address',
           },
         ],
         internalType: 'struct OrderDS.Order',
@@ -1063,9 +1095,9 @@ export const OrderManagerABI = [
             type: 'uint256',
           },
           {
-            internalType: 'uint256',
-            name: 'executionFee',
-            type: 'uint256',
+            internalType: 'address',
+            name: 'partnerAddress',
+            type: 'address',
           },
         ],
         internalType: 'struct OrderDS.Order',
@@ -1173,6 +1205,19 @@ export const OrderManagerABI = [
       },
     ],
     stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: '_feeReceiver',
+        type: 'address',
+      },
+    ],
+    name: 'setExecutionFeeReceiver',
+    outputs: [],
+    stateMutability: 'nonpayable',
     type: 'function',
   },
   {

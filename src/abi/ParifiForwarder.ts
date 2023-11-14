@@ -8,13 +8,13 @@ export const ParifiForwarderABI = [
       },
       {
         internalType: 'address',
-        name: '_nativeToken',
+        name: '_dataFabric',
         type: 'address',
       },
       {
-        internalType: 'string',
-        name: '_version',
-        type: 'string',
+        internalType: 'address',
+        name: 'pythContract',
+        type: 'address',
       },
     ],
     stateMutability: 'nonpayable',
@@ -22,17 +22,22 @@ export const ParifiForwarderABI = [
   },
   {
     inputs: [],
-    name: 'InsufficientGas',
+    name: 'GracePeriodNotOver',
     type: 'error',
   },
   {
     inputs: [],
-    name: 'InvalidGasPrice',
+    name: 'InvalidMarketDecimals',
     type: 'error',
   },
   {
     inputs: [],
-    name: 'InvalidNonce',
+    name: 'InvalidMarketId',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'InvalidPrice',
     type: 'error',
   },
   {
@@ -48,43 +53,12 @@ export const ParifiForwarderABI = [
   },
   {
     inputs: [],
-    name: 'InvalidShortString',
-    type: 'error',
-  },
-  {
-    inputs: [],
-    name: 'InvalidSignature',
-    type: 'error',
-  },
-  {
-    inputs: [],
-    name: 'InvalidToAddress',
-    type: 'error',
-  },
-  {
-    inputs: [],
     name: 'InvalidToken',
     type: 'error',
   },
   {
     inputs: [],
-    name: 'InvalidTxValue',
-    type: 'error',
-  },
-  {
-    inputs: [],
-    name: 'OrderExpired',
-    type: 'error',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'string',
-        name: 'str',
-        type: 'string',
-      },
-    ],
-    name: 'StringTooLong',
+    name: 'SequencerDown',
     type: 'error',
   },
   {
@@ -98,266 +72,100 @@ export const ParifiForwarderABI = [
       {
         indexed: true,
         internalType: 'address',
+        name: 'feedAddress',
+        type: 'address',
+      },
+    ],
+    name: 'ChainlinkSequencerUptimeFeedUpdated',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: 'bytes32',
+        name: 'marketId',
+        type: 'bytes32',
+      },
+      {
+        indexed: false,
+        internalType: 'bytes32',
+        name: 'priceId',
+        type: 'bytes32',
+      },
+    ],
+    name: 'MarketFeedUpdatedPyth',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: 'feesPaid',
+        type: 'uint256',
+      },
+    ],
+    name: 'PythPriceUpdated',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: 'bool',
+        name: 'status',
+        type: 'bool',
+      },
+    ],
+    name: 'SequencerUptimeStatusUpdated',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: 'address',
         name: 'tokenAddress',
         type: 'address',
       },
       {
         indexed: false,
-        internalType: 'bool',
-        name: 'updatedStatus',
-        type: 'bool',
+        internalType: 'bytes32',
+        name: 'priceId',
+        type: 'bytes32',
       },
     ],
-    name: 'ApprovedTokenStatusUpdated',
-    type: 'event',
-  },
-  {
-    anonymous: false,
-    inputs: [],
-    name: 'EIP712DomainChanged',
-    type: 'event',
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: false,
-        internalType: 'uint256',
-        name: 'newGasPremium',
-        type: 'uint256',
-      },
-    ],
-    name: 'GasPremiumUpdated',
-    type: 'event',
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: 'address',
-        name: 'msgSender',
-        type: 'address',
-      },
-      {
-        indexed: true,
-        internalType: 'address',
-        name: 'collateralToken',
-        type: 'address',
-      },
-      {
-        indexed: false,
-        internalType: 'uint256',
-        name: 'gasCost',
-        type: 'uint256',
-      },
-    ],
-    name: 'MetaTxFeeCharged',
-    type: 'event',
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: 'address',
-        name: '_newMetaTxFeeReceiver',
-        type: 'address',
-      },
-    ],
-    name: 'MetaTxFeeReceiverUpdated',
-    type: 'event',
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: 'address',
-        name: 'newPriceFeed',
-        type: 'address',
-      },
-    ],
-    name: 'PriceFeedUpdated',
+    name: 'TokenFeedUpdatedPyth',
     type: 'event',
   },
   {
     inputs: [
-      {
-        internalType: 'address',
-        name: '_marketVault',
-        type: 'address',
-      },
-    ],
-    name: 'addVault',
-    outputs: [],
-    stateMutability: 'nonpayable',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'address',
-        name: '',
-        type: 'address',
-      },
-    ],
-    name: 'approvedTokens',
-    outputs: [
-      {
-        internalType: 'bool',
-        name: '',
-        type: 'bool',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [],
-    name: 'eip712Domain',
-    outputs: [
-      {
-        internalType: 'bytes1',
-        name: 'fields',
-        type: 'bytes1',
-      },
-      {
-        internalType: 'string',
-        name: 'name',
-        type: 'string',
-      },
-      {
-        internalType: 'string',
-        name: 'version',
-        type: 'string',
-      },
-      {
-        internalType: 'uint256',
-        name: 'chainId',
-        type: 'uint256',
-      },
-      {
-        internalType: 'address',
-        name: 'verifyingContract',
-        type: 'address',
-      },
       {
         internalType: 'bytes32',
-        name: 'salt',
+        name: 'marketId',
         type: 'bytes32',
       },
       {
-        internalType: 'uint256[]',
-        name: 'extensions',
-        type: 'uint256[]',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        components: [
-          {
-            internalType: 'address',
-            name: 'fromAddress',
-            type: 'address',
-          },
-          {
-            internalType: 'address',
-            name: 'toAddress',
-            type: 'address',
-          },
-          {
-            internalType: 'uint256',
-            name: 'txValue',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'minGas',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'maxGasPrice',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'userNonce',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'txDeadline',
-            type: 'uint256',
-          },
-          {
-            internalType: 'bytes',
-            name: 'txData',
-            type: 'bytes',
-          },
-        ],
-        internalType: 'struct ParifiForwarder.Transaction',
-        name: 'transaction',
-        type: 'tuple',
-      },
-      {
-        internalType: 'bytes',
-        name: 'signature',
-        type: 'bytes',
-      },
-      {
-        internalType: 'address',
-        name: 'feeToken',
-        type: 'address',
-      },
-    ],
-    name: 'execute',
-    outputs: [
-      {
-        internalType: 'bool',
-        name: '',
-        type: 'bool',
-      },
-      {
-        internalType: 'bytes',
-        name: '',
-        type: 'bytes',
-      },
-    ],
-    stateMutability: 'payable',
-    type: 'function',
-  },
-  {
-    inputs: [],
-    name: 'gasPremium',
-    outputs: [
-      {
         internalType: 'uint256',
-        name: '',
+        name: 'marketAmount',
         type: 'uint256',
       },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [
       {
         internalType: 'address',
-        name: 'userAddress',
+        name: 'tokenAddress',
         type: 'address',
       },
     ],
-    name: 'getNonce',
+    name: 'convertMarketToToken',
     outputs: [
       {
         internalType: 'uint256',
-        name: '',
+        name: 'tokenAmount',
         type: 'uint256',
       },
     ],
@@ -368,11 +176,362 @@ export const ParifiForwarderABI = [
     inputs: [
       {
         internalType: 'bytes32',
-        name: 'structHash',
+        name: 'marketId',
+        type: 'bytes32',
+      },
+      {
+        internalType: 'uint256',
+        name: 'marketAmount',
+        type: 'uint256',
+      },
+      {
+        internalType: 'address',
+        name: 'tokenAddress',
+        type: 'address',
+      },
+    ],
+    name: 'convertMarketToTokenSecondary',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'tokenAmount',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'marketId',
+        type: 'bytes32',
+      },
+      {
+        internalType: 'uint256',
+        name: 'amount',
+        type: 'uint256',
+      },
+    ],
+    name: 'convertMarketToUsd',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'amountUsd',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'tokenA',
+        type: 'address',
+      },
+      {
+        internalType: 'uint256',
+        name: 'amountA',
+        type: 'uint256',
+      },
+      {
+        internalType: 'address',
+        name: 'tokenB',
+        type: 'address',
+      },
+    ],
+    name: 'convertTokenToToken',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'amountB',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'tokenA',
+        type: 'address',
+      },
+      {
+        internalType: 'uint256',
+        name: 'amountA',
+        type: 'uint256',
+      },
+      {
+        internalType: 'address',
+        name: 'tokenB',
+        type: 'address',
+      },
+    ],
+    name: 'convertTokenToTokenSecondary',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'amountB',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'tokenAddress',
+        type: 'address',
+      },
+      {
+        internalType: 'uint256',
+        name: 'amount',
+        type: 'uint256',
+      },
+    ],
+    name: 'convertTokenToUsd',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'amountUsd',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'dataFabric',
+    outputs: [
+      {
+        internalType: 'contract DataFabric',
+        name: '',
+        type: 'address',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'marketId',
         type: 'bytes32',
       },
     ],
-    name: 'hashTypedDataV4',
+    name: 'getLatestPriceMarket',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'marketPriceUsd',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'tokenAddress',
+        type: 'address',
+      },
+    ],
+    name: 'getLatestPriceToken',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'tokenPriceUsd',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'marketId',
+        type: 'bytes32',
+      },
+    ],
+    name: 'getMarketPricePrimary',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'marketPriceUsd',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'marketId',
+        type: 'bytes32',
+      },
+    ],
+    name: 'getMarketPricePyth',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'marketPriceUsd',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'marketId',
+        type: 'bytes32',
+      },
+    ],
+    name: 'getMarketPricePythEMA',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'marketPriceUsd',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'marketId',
+        type: 'bytes32',
+      },
+    ],
+    name: 'getMarketPriceSecondary',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'marketPriceUsd',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'tokenAddress',
+        type: 'address',
+      },
+    ],
+    name: 'getTokenPricePrimary',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'tokenPriceUsd',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'tokenAddress',
+        type: 'address',
+      },
+    ],
+    name: 'getTokenPricePyth',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'tokenPriceUsd',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'tokenAddress',
+        type: 'address',
+      },
+    ],
+    name: 'getTokenPricePythEMA',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'tokenPriceUsd',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'tokenAddress',
+        type: 'address',
+      },
+    ],
+    name: 'getTokenPriceSecondary',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'tokenPriceUsd',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'getValidTimePeriod',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: '',
+        type: 'bytes32',
+      },
+    ],
+    name: 'marketToPythPriceId',
     outputs: [
       {
         internalType: 'bytes32',
@@ -385,49 +544,10 @@ export const ParifiForwarderABI = [
   },
   {
     inputs: [],
-    name: 'metaTxFeeReceiver',
+    name: 'pyth',
     outputs: [
       {
-        internalType: 'address',
-        name: '',
-        type: 'address',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [],
-    name: 'nativeToken',
-    outputs: [
-      {
-        internalType: 'address',
-        name: '',
-        type: 'address',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [],
-    name: 'orderManager',
-    outputs: [
-      {
-        internalType: 'address',
-        name: '',
-        type: 'address',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [],
-    name: 'priceFeed',
-    outputs: [
-      {
-        internalType: 'contract IPriceFeed',
+        internalType: 'contract IPyth',
         name: '',
         type: 'address',
       },
@@ -452,25 +572,66 @@ export const ParifiForwarderABI = [
     inputs: [
       {
         internalType: 'address',
-        name: '_marketVault',
+        name: '',
         type: 'address',
       },
     ],
-    name: 'removeVault',
-    outputs: [],
-    stateMutability: 'nonpayable',
+    name: 'tokenToPythPriceId',
+    outputs: [
+      {
+        internalType: 'bytes32',
+        name: '',
+        type: 'bytes32',
+      },
+    ],
+    stateMutability: 'view',
     type: 'function',
   },
   {
     inputs: [
       {
+        internalType: 'bytes32',
+        name: 'marketId',
+        type: 'bytes32',
+      },
+      {
+        internalType: 'bytes[]',
+        name: 'priceUpdateData',
+        type: 'bytes[]',
+      },
+    ],
+    name: 'updateAndGetMarketPrice',
+    outputs: [
+      {
         internalType: 'uint256',
-        name: '_newGasPremium',
+        name: 'marketPriceUsd',
         type: 'uint256',
       },
     ],
-    name: 'setGasPremium',
-    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'marketId',
+        type: 'bytes32',
+      },
+      {
+        internalType: 'bytes[]',
+        name: 'priceUpdateData',
+        type: 'bytes[]',
+      },
+    ],
+    name: 'updateAndGetMarketPriceEMA',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'marketPriceUsd',
+        type: 'uint256',
+      },
+    ],
     stateMutability: 'nonpayable',
     type: 'function',
   },
@@ -478,16 +639,59 @@ export const ParifiForwarderABI = [
     inputs: [
       {
         internalType: 'address',
-        name: '_orderManager',
+        name: 'tokenAddress',
         type: 'address',
       },
       {
+        internalType: 'bytes[]',
+        name: 'priceUpdateData',
+        type: 'bytes[]',
+      },
+    ],
+    name: 'updateAndGetTokenPrice',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'tokenPriceUsd',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
         internalType: 'address',
-        name: '_marketVault',
+        name: 'tokenAddress',
+        type: 'address',
+      },
+      {
+        internalType: 'bytes[]',
+        name: 'priceUpdateData',
+        type: 'bytes[]',
+      },
+    ],
+    name: 'updateAndGetTokenPriceEMA',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'tokenPriceUsd',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: '_sequencerUptimeFeed',
         type: 'address',
       },
     ],
-    name: 'setReceiverContracts',
+    name: 'updateChainlinkSequencerUptimeFeed',
     outputs: [],
     stateMutability: 'nonpayable',
     type: 'function',
@@ -495,17 +699,43 @@ export const ParifiForwarderABI = [
   {
     inputs: [
       {
-        internalType: 'address',
-        name: '_tokenAddress',
-        type: 'address',
+        internalType: 'bytes32',
+        name: 'marketId',
+        type: 'bytes32',
       },
       {
+        internalType: 'bytes32',
+        name: 'priceId',
+        type: 'bytes32',
+      },
+    ],
+    name: 'updateMarketFeedPyth',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes[]',
+        name: 'priceUpdateData',
+        type: 'bytes[]',
+      },
+    ],
+    name: 'updatePythPrice',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
         internalType: 'bool',
-        name: '_status',
+        name: 'status',
         type: 'bool',
       },
     ],
-    name: 'updateApprovedToken',
+    name: 'updateSequencerUptimeStatus',
     outputs: [],
     stateMutability: 'nonpayable',
     type: 'function',
@@ -514,124 +744,22 @@ export const ParifiForwarderABI = [
     inputs: [
       {
         internalType: 'address',
-        name: '_newFeeReceiver',
+        name: 'tokenAddress',
         type: 'address',
       },
+      {
+        internalType: 'bytes32',
+        name: 'priceId',
+        type: 'bytes32',
+      },
     ],
-    name: 'updateMetaTxFeeReceiver',
+    name: 'updateTokenFeedPyth',
     outputs: [],
     stateMutability: 'nonpayable',
     type: 'function',
   },
   {
-    inputs: [
-      {
-        internalType: 'address payable',
-        name: '_priceFeed',
-        type: 'address',
-      },
-    ],
-    name: 'updatePriceFeed',
-    outputs: [],
-    stateMutability: 'nonpayable',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'address',
-        name: '',
-        type: 'address',
-      },
-    ],
-    name: 'vaultsAllowed',
-    outputs: [
-      {
-        internalType: 'bool',
-        name: '',
-        type: 'bool',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        components: [
-          {
-            internalType: 'address',
-            name: 'fromAddress',
-            type: 'address',
-          },
-          {
-            internalType: 'address',
-            name: 'toAddress',
-            type: 'address',
-          },
-          {
-            internalType: 'uint256',
-            name: 'txValue',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'minGas',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'maxGasPrice',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'userNonce',
-            type: 'uint256',
-          },
-          {
-            internalType: 'uint256',
-            name: 'txDeadline',
-            type: 'uint256',
-          },
-          {
-            internalType: 'bytes',
-            name: 'txData',
-            type: 'bytes',
-          },
-        ],
-        internalType: 'struct ParifiForwarder.Transaction',
-        name: 'transaction',
-        type: 'tuple',
-      },
-      {
-        internalType: 'bytes',
-        name: 'signature',
-        type: 'bytes',
-      },
-    ],
-    name: 'verify',
-    outputs: [
-      {
-        internalType: 'bool',
-        name: '',
-        type: 'bool',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [],
-    name: 'version',
-    outputs: [
-      {
-        internalType: 'string',
-        name: '',
-        type: 'string',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
+    stateMutability: 'payable',
+    type: 'receive',
   },
 ] as const;

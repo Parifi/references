@@ -179,6 +179,25 @@ export const DataFabricABI = [
     anonymous: false,
     inputs: [
       {
+        indexed: false,
+        internalType: 'address',
+        name: 'depositToken',
+        type: 'address',
+      },
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: 'amount',
+        type: 'uint256',
+      },
+    ],
+    name: 'ExecutionFeeUpdated',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
         indexed: true,
         internalType: 'bytes32',
         name: 'marketId',
@@ -556,6 +575,25 @@ export const DataFabricABI = [
       {
         internalType: 'uint256',
         name: 'dynamicBorrowRate',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'depositToken',
+        type: 'address',
+      },
+    ],
+    name: 'getExecutionFee',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
         type: 'uint256',
       },
     ],
@@ -1031,6 +1069,24 @@ export const DataFabricABI = [
       },
     ],
     name: 'setCloseOnlyMode',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'depositToken',
+        type: 'address',
+      },
+      {
+        internalType: 'uint256',
+        name: 'amount',
+        type: 'uint256',
+      },
+    ],
+    name: 'setExecutionFee',
     outputs: [],
     stateMutability: 'nonpayable',
     type: 'function',
