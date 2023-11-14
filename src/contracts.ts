@@ -157,7 +157,7 @@ export const contracts = {
       abi: AdapterABI,
     },
     OrderManager: {
-      address: '0x538C336524506F9Db34064D0179384Ed0d1A17d9',
+      address: '0x6B48f52c488cAb46cf75E67F2c4da91E25d8e618',
       abi: OrderManagerABI,
     },
     FeeManager: {
