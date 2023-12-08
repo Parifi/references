@@ -10,6 +10,7 @@ import { DataFabricABI } from './DataFabric';
 import { FeeManagerABI } from './FeeManager';
 import { AdapterABI } from './Adapter';
 import { GelatoABI } from './Gelato';
+import { ParifiUtilsABI } from './ParifiUtils';
 
 export {
   FeeManagerABI,
@@ -24,4 +25,5 @@ export {
   GnosisSafeABI,
   Multicall,
   ParifiForwarderABI,
+  ParifiUtilsABI,
 };
