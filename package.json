@@ -33,5 +33,10 @@
   },
   "dependencies": {
     "viem": "^1.14.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Parifi/references.git"
+  },
+  "homepage": "https://github.com/Parifi/references#readme"
 }
