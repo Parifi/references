@@ -250,7 +250,7 @@ export const contracts = {
       abi: GnosisSafeABI,
     },
     ParifiUtils: {
-      address: '0x1Cc3e818096b9CC1CDaF49c812C6A21f0A006F3f',
+      address: '0x05994855dfD9937A82b37001ADe08bEf67b06f44',
       abi: ArbSepoliaContractsABI.ParifiUtilsABI,
     },
     Gelato: {
