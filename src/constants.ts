@@ -40,8 +40,8 @@ export const availableVaultsPerChain: Record<Chain, `0x${string}`[]> = {
   [Chain.ARBITRUM]: [],
   [Chain.BASE]: [],
   [Chain.ARBITRUM_SEPOLIA]: [
-    '0x260Edd590cAe31677941C303c87eaC175d1d586a', // ETH
-    '0x53bBF9cd40D9187B1A2Df84ae3fd40401b6aF259', // USDC
+    '0x32584Dc865c42c7107e9fe03FC0E9181f68458F5', // ETH
+    '0x609f4BBbB50E06803F9C30e13057eC8746cafc82', // USDC
   ],
 };
 

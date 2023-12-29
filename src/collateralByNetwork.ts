@@ -20,8 +20,8 @@ export const collateralByNetwork: {
     [Collateral.ETH]: '0x02',
   },
   [Chain.ARBITRUM_SEPOLIA]: {
-    [Collateral.USDC]: '0x746621aAccf189A28d7eC61DeE084d06B0417a07',
-    [Collateral.ETH]: '0x0299f136593C7D7A14eF69CDb9Bc894449b5674f',
+    [Collateral.USDC]: '0x33c11D1af0d7de6Af67C1E7bB783807a9E4B93eD',
+    [Collateral.ETH]: '0x7442C3A96f41c8155076C87dcD6f00f451BF752f',
   },
 };
 
@@ -47,7 +47,7 @@ export const collateralByAddress: ReverseMapping = {
     '0x02': Collateral.ETH,
   },
   [Chain.ARBITRUM_SEPOLIA]: {
-    '0x746621aAccf189A28d7eC61DeE084d06B0417a07': Collateral.USDC,
-    '0x0299f136593C7D7A14eF69CDb9Bc894449b5674f': Collateral.ETH,
+    '0x33c11D1af0d7de6Af67C1E7bB783807a9E4B93eD': Collateral.USDC,
+    '0x7442C3A96f41c8155076C87dcD6f00f451BF752f': Collateral.ETH,
   },
 };
