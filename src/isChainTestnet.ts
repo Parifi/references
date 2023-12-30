@@ -5,4 +5,5 @@ export const isChainTestnet: Record<Chain, boolean> = {
   [Chain.ARBITRUM]: false,
   [Chain.POLYGON]: false,
   [Chain.BASE]: false,
+  [Chain.ARBITRUM_SEPOLIA]: true,
 };
