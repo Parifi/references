@@ -1,4 +1,5 @@
 import { Chain, Collateral } from '.';
+import ARBITRUM_SEPOLIA_TOKENS from './address/arb-sepolia/tokens';
 
 export const collateralByNetwork: {
   [chain in Chain]: { [key: string]: `0x${string}` };
@@ -20,8 +21,8 @@ export const collateralByNetwork: {
     [Collateral.ETH]: '0x02',
   },
   [Chain.ARBITRUM_SEPOLIA]: {
-    [Collateral.USDC]: '0x33c11D1af0d7de6Af67C1E7bB783807a9E4B93eD',
-    [Collateral.ETH]: '0x7442C3A96f41c8155076C87dcD6f00f451BF752f',
+    [Collateral.USDC]: ARBITRUM_SEPOLIA_TOKENS.USDC,
+    [Collateral.ETH]: ARBITRUM_SEPOLIA_TOKENS.ETH,
   },
 };
 
@@ -47,7 +48,7 @@ export const collateralByAddress: ReverseMapping = {
     '0x02': Collateral.ETH,
   },
   [Chain.ARBITRUM_SEPOLIA]: {
-    '0x33c11D1af0d7de6Af67C1E7bB783807a9E4B93eD': Collateral.USDC,
-    '0x7442C3A96f41c8155076C87dcD6f00f451BF752f': Collateral.ETH,
+    [ARBITRUM_SEPOLIA_TOKENS.USDC]: Collateral.USDC,
+    [ARBITRUM_SEPOLIA_TOKENS.ETH]: Collateral.ETH,
   },
 };

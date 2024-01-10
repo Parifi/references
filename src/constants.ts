@@ -1,3 +1,4 @@
+import ARBITRUM_SEPOLIA_VAULTS from './address/arb-sepolia/vaults';
 import { Chain } from './chain';
 
 export type TypeOfMarket = 'crypto' | 'forex' | 'stock' | 'commodity';
@@ -40,8 +41,8 @@ export const availableVaultsPerChain: Record<Chain, `0x${string}`[]> = {
   [Chain.ARBITRUM]: [],
   [Chain.BASE]: [],
   [Chain.ARBITRUM_SEPOLIA]: [
-    '0x32584Dc865c42c7107e9fe03FC0E9181f68458F5', // ETH
-    '0x609f4BBbB50E06803F9C30e13057eC8746cafc82', // USDC
+    ARBITRUM_SEPOLIA_VAULTS.ETH, // ETH
+    ARBITRUM_SEPOLIA_VAULTS.USDC, // USDC
   ],
 };
 
