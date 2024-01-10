@@ -218,19 +218,19 @@ export const contracts = {
       abi: ArbSepoliaContractsABI.AdapterABI,
     },
     OrderManager: {
-      address: '0x823e857b6e571992E9459615160BB58a3eD8491E',
+      address: '0xf7f16027eFfA5e1eD5cff057bbd275cB04017691',
       abi: ArbSepoliaContractsABI.OrderManagerABI,
     },
     FeeManager: {
-      address: '0x71BD21E217171164d7627400D311b230412AD5D4',
+      address: '0x2b75b5Ec89DdC66780AC33fE327652518550D108',
       abi: ArbSepoliaContractsABI.FeeManagerABI,
     },
     PriceFeed: {
-      address: '0xE90001150D2930D43cD7571A9f3dACd07cdc84d0',
+      address: '0x34C6bE80202E3f029f75E6704df25FC59998cD51',
       abi: ArbSepoliaContractsABI.PriceFeedABI,
     },
     DataFabric: {
-      address: '0xEb5de463127f7a256967Eb3df0560ad52cF27942',
+      address: '0x975412a9FAe9bb3B4BF0BEee5e069c8c4Ab1AA9c',
       abi: ArbSepoliaContractsABI.DataFabricABI,
     },
     ERC20: {
@@ -242,7 +242,7 @@ export const contracts = {
       abi: ArbSepoliaContractsABI.ParifiVaultABI,
     },
     ParifiForwarder: {
-      address: '0x07408392eF2968712cdabE8C1de7807AA191da19',
+      address: '0x81315F4465AD21FCc8A5B892224adD12c094bE21',
       abi: ArbSepoliaContractsABI.ParifiForwarderABI,
     },
     Safe: {
@@ -250,7 +250,7 @@ export const contracts = {
       abi: GnosisSafeABI,
     },
     ParifiUtils: {
-      address: '0xfD7999A4254C70099991f9b760fA795237103B72',
+      address: '0xcb3Ca86B5ec0005840F66A2d633a8C9C0Aa745D4',
       abi: ArbSepoliaContractsABI.ParifiUtilsABI,
     },
     Gelato: {
