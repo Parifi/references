@@ -1,4 +1,4 @@
-export const priceIdBySymbol: Record<string, string> = {
+export const stablePriceIdBySymbol: Record<string, string> = {
   BTC: '0xe62df6c8b4a85fe1a67db44dc12de5db330f7ac66b72dc658afedf0f4a415b43',
   ETH: '0xff61491a931112ddf1bd8147cd1b641375f79f5825126d665480874634fd0ace',
   LINK: '0x8ac0c70fff57e9aefdf5edf44b51d62c2d433653cbb2cf5cc06bb115af04d221',
@@ -11,8 +11,8 @@ export const priceIdBySymbol: Record<string, string> = {
   GBP: '0x84c2dde9633d93d1bcad84e7dc41c9d56578b7ec52fabedc1f335d673df0a7c1',
 };
 
-export const symbolByPriceId: Record<string, string> = Object.entries(
-  priceIdBySymbol,
+export const symbolByStablePriceId: Record<string, string> = Object.entries(
+  stablePriceIdBySymbol,
 ).reduce(
   (acc, [symbol, priceId]) => {
     acc[priceId] = symbol;
@@ -21,7 +21,7 @@ export const symbolByPriceId: Record<string, string> = Object.entries(
   {} as Record<string, string>,
 );
 
-export const priceIdBySymbolTestnet: Record<string, string> = {
+export const betaPriceIdBySymbol: Record<string, string> = {
   BTC: '0xf9c0172ba10dfa4d19088d94f5bf61d3b54d5bd7483a322a982e1373ee8ea31b',
   ETH: '0xca80ba6dc32e08d06f1aa886011eed1d77c77be9eb761cc10d72b7d0a2fd57a6',
   LINK: '0x83be4ed61dd8a3518d198098ce37240c494710a7b9d85e35d9fceac21df08994',
@@ -34,8 +34,8 @@ export const priceIdBySymbolTestnet: Record<string, string> = {
   GBP: '0xbcbdc2755bd74a2065f9d3283c2b8acbd898e473bdb90a6764b3dbd467c56ecd',
 };
 
-export const symbolByPriceIdTestnet: Record<string, string> = Object.entries(
-  priceIdBySymbolTestnet,
+export const symbolByBetaPriceId: Record<string, string> = Object.entries(
+  betaPriceIdBySymbol,
 ).reduce(
   (acc, [symbol, priceId]) => {
     acc[priceId] = symbol;
