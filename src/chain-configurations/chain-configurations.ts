@@ -1,11 +1,11 @@
 import { Chain } from "../chain";
-import IChainConfig from "../interface/chain-config.interface";
-import arbGoerliConfiguration from "./arb-goerli-configuration";
-import arbSepoliaConfiguration from "./arb-sepolia-configuration";
+import IPythConfig from "../interface/pyth-config.interface";
+import pythBetaConfiguration from "./pyth-beta-configuration";
+import pythStableConfiguration from "./pyth-stable-configuration";
 
-const chainConfigurations: Record<number, IChainConfig> = {
-  [Chain.ARBITRUM_SEPOLIA]: arbSepoliaConfiguration,
-  [Chain.ARBITRUM_GOERLI]: arbGoerliConfiguration,
+const chainConfigurations: Record<number, IPythConfig> = {
+  [Chain.ARBITRUM_SEPOLIA]: pythStableConfiguration,
+  [Chain.ARBITRUM_GOERLI]: pythBetaConfiguration,
 }
 
 export default chainConfigurations;
