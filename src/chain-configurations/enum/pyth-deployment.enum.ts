@@ -1,6 +1,6 @@
-enum PythDeployments {
+enum PythDeployment {
   STABLE = 'stable',
   BETA = 'beta',
 }
 
-export default PythDeployments;
+export default PythDeployment;
