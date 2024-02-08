@@ -15,4 +15,6 @@ export enum NotificationType {
   LIQUIDATE_POSITION = 'liquidate-position',
   DEPOSIT = 'deposit',
   WITHDRAW = 'withdraw',
+  KYC_APPROVED = 'kyc-approved',
+  KYC_REJECTED = 'kyc-rejected',
 }
