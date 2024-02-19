@@ -17,4 +17,5 @@ export enum NotificationType {
   WITHDRAW = 'withdraw',
   KYC_APPROVED = 'kyc-approved',
   KYC_REJECTED = 'kyc-rejected',
+  ACTIVATE_COOLDOWN = 'activate-cooldown',
 }
