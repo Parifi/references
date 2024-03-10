@@ -33,13 +33,6 @@ export const markets: Market[] = [
 ];
 
 export const availableVaultsPerChain: Record<Chain, `0x${string}`[]> = {
-  [Chain.ARBITRUM_GOERLI]: [
-    '0xCb3ad18E23EBa939A27714df17A6C1d704962129', // ETH
-    '0xd59C6A7cFb7587dfef3e92B18Ea0CB7e26703810', // USDC
-  ],
-  [Chain.POLYGON]: [],
-  [Chain.ARBITRUM]: [],
-  [Chain.BASE]: [],
   [Chain.ARBITRUM_SEPOLIA]: [
     ARBITRUM_SEPOLIA_VAULTS.ETH, // ETH
     ARBITRUM_SEPOLIA_VAULTS.USDC, // USDC
@@ -50,13 +43,6 @@ export const usedVaultsPerChain: Record<
   Chain,
   Record<string, `0x${string}`>
 > = {
-  [Chain.ARBITRUM_GOERLI]: {
-    ETH: availableVaultsPerChain[Chain.ARBITRUM_GOERLI][0],
-    USDC: availableVaultsPerChain[Chain.ARBITRUM_GOERLI][1],
-  },
-  [Chain.POLYGON]: {},
-  [Chain.ARBITRUM]: {},
-  [Chain.BASE]: {},
   [Chain.ARBITRUM_SEPOLIA]: {
     ETH: availableVaultsPerChain[Chain.ARBITRUM_SEPOLIA][0],
     USDC: availableVaultsPerChain[Chain.ARBITRUM_SEPOLIA][1],
@@ -65,8 +51,6 @@ export const usedVaultsPerChain: Record<
 
 export function usedVaultsByName(token: string): string {
   const usedVaultsByName: Record<string, string> = {
-    [availableVaultsPerChain[Chain.ARBITRUM_GOERLI][0]]: 'Ethereum',
-    [availableVaultsPerChain[Chain.ARBITRUM_GOERLI][1]]: 'USD Coin',
     [availableVaultsPerChain[Chain.ARBITRUM_SEPOLIA][0]]: 'Ethereum',
     [availableVaultsPerChain[Chain.ARBITRUM_SEPOLIA][1]]: 'USD Coin',
   };
@@ -76,8 +60,6 @@ export function usedVaultsByName(token: string): string {
 
 export function usedVaultsBySymbol(token: string): string {
   const usedVaultsBySymbol: Record<string, string> = {
-    [availableVaultsPerChain[Chain.ARBITRUM_GOERLI][0]]: 'ETH',
-    [availableVaultsPerChain[Chain.ARBITRUM_GOERLI][1]]: 'USDC',
     [availableVaultsPerChain[Chain.ARBITRUM_SEPOLIA][0]]: 'ETH',
     [availableVaultsPerChain[Chain.ARBITRUM_SEPOLIA][1]]: 'USDC',
   };

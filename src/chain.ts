@@ -1,7 +1,3 @@
 export enum Chain {
-  POLYGON = 137,
-  ARBITRUM = 42161,
-  BASE = 8453,
-  ARBITRUM_GOERLI = 421613,
   ARBITRUM_SEPOLIA = 421614,
 }

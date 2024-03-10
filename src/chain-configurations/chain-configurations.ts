@@ -5,7 +5,6 @@ import pythStableConfiguration from "./pyth-stable-configuration";
 
 const chainConfigurations: Record<number, IPythConfig> = {
   [Chain.ARBITRUM_SEPOLIA]: pythStableConfiguration,
-  [Chain.ARBITRUM_GOERLI]: pythBetaConfiguration,
 }
 
 export default chainConfigurations;
