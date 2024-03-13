@@ -6,6 +6,7 @@ import { DataFabricABI } from './DataFabric';
 import { FeeManagerABI } from './FeeManager';
 import { AdapterABI } from './Adapter';
 import { ParifiUtilsABI } from './ParifiUtils';
+import { RBACABI } from './RBAC';
 
 export {
   FeeManagerABI,
@@ -16,4 +17,5 @@ export {
   ParifiVaultABI,
   ParifiForwarderABI,
   ParifiUtilsABI,
+  RBACABI,
 };
