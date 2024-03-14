@@ -1261,25 +1261,17 @@ export const OrderManagerABI = [
   {
     "inputs": [
       {
+        "internalType": "address payable",
+        "name": "_newPriceFeed",
+        "type": "address"
+      },
+      {
         "internalType": "address",
         "name": "_newFeeManager",
         "type": "address"
       }
     ],
-    "name": "updateFeeManager",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address payable",
-        "name": "_priceFeed",
-        "type": "address"
-      }
-    ],
-    "name": "updatePriceFeed",
+    "name": "updateContractAddresses",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
