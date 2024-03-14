@@ -7,6 +7,7 @@ import { FeeManagerABI } from './FeeManager';
 import { AdapterABI } from './Adapter';
 import { ParifiUtilsABI } from './ParifiUtils';
 import { RBACABI } from './RBAC';
+import { SubgraphHelperABI } from './SubgraphHelper';
 
 export {
   FeeManagerABI,
@@ -18,4 +19,5 @@ export {
   ParifiForwarderABI,
   ParifiUtilsABI,
   RBACABI,
+  SubgraphHelperABI,
 };

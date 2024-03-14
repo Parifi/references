@@ -68,6 +68,10 @@ export const contracts = {
     RBAC: {
       address: '0xff0478eC02415877669F4222BE9c48c23e8733BF',
       abi: ArbSepoliaContractsABI.RBACABI,
+    },
+    SubgraphHelper: {
+      addresS: '0x84682F9360ae691Bc9519eabd8889842137A1eCc',
+      abi: ArbSepoliaContractsABI.SubgraphHelperABI,
     }
   },
 };
