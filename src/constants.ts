@@ -1,4 +1,4 @@
-import ARBITRUM_ONE_VAULTS from './address/arb-one/vaults';
+import ARBITRUM_MAINNET_VAULTS from './address/arb-one/vaults';
 import ARBITRUM_SEPOLIA_VAULTS from './address/arb-sepolia/vaults';
 import { Chain } from './chain';
 
@@ -40,9 +40,9 @@ export const availableVaultsPerChain: Record<Chain, `0x${string}`[]> = {
     ARBITRUM_SEPOLIA_VAULTS.ETH, // ETH
     ARBITRUM_SEPOLIA_VAULTS.USDC, // USDC
   ],
-  [Chain.ARBITRUM_ONE]: [
-    ARBITRUM_ONE_VAULTS.ETH, // ETH
-    ARBITRUM_ONE_VAULTS.USDC, // USDC
+  [Chain.ARBITRUM_MAINNET]: [
+    ARBITRUM_MAINNET_VAULTS.ETH, // ETH
+    ARBITRUM_MAINNET_VAULTS.USDC, // USDC
   ],
 };
 
@@ -54,9 +54,9 @@ export const usedVaultsPerChain: Record<
     ETH: availableVaultsPerChain[Chain.ARBITRUM_SEPOLIA][0],
     USDC: availableVaultsPerChain[Chain.ARBITRUM_SEPOLIA][1],
   },
-  [Chain.ARBITRUM_ONE]: {
-    ETH: availableVaultsPerChain[Chain.ARBITRUM_ONE][0],
-    USDC: availableVaultsPerChain[Chain.ARBITRUM_ONE][1],
+  [Chain.ARBITRUM_MAINNET]: {
+    ETH: availableVaultsPerChain[Chain.ARBITRUM_MAINNET][0],
+    USDC: availableVaultsPerChain[Chain.ARBITRUM_MAINNET][1],
   },
 };
 
@@ -64,8 +64,8 @@ export function usedVaultsByName(token: string): string {
   const usedVaultsByName: Record<string, string> = {
     [availableVaultsPerChain[Chain.ARBITRUM_SEPOLIA][0]]: 'Ethereum',
     [availableVaultsPerChain[Chain.ARBITRUM_SEPOLIA][1]]: 'USD Coin',
-    [availableVaultsPerChain[Chain.ARBITRUM_ONE][1]]: 'USD Coin',
-    [availableVaultsPerChain[Chain.ARBITRUM_ONE][1]]: 'USD Coin',
+    [availableVaultsPerChain[Chain.ARBITRUM_MAINNET][1]]: 'USD Coin',
+    [availableVaultsPerChain[Chain.ARBITRUM_MAINNET][1]]: 'USD Coin',
   };
 
   return usedVaultsByName[token];
@@ -75,8 +75,8 @@ export function usedVaultsBySymbol(token: string): string {
   const usedVaultsBySymbol: Record<string, string> = {
     [availableVaultsPerChain[Chain.ARBITRUM_SEPOLIA][0]]: 'ETH',
     [availableVaultsPerChain[Chain.ARBITRUM_SEPOLIA][1]]: 'USDC',
-    [availableVaultsPerChain[Chain.ARBITRUM_ONE][0]]: 'ETH',
-    [availableVaultsPerChain[Chain.ARBITRUM_ONE][1]]: 'USDC',
+    [availableVaultsPerChain[Chain.ARBITRUM_MAINNET][0]]: 'ETH',
+    [availableVaultsPerChain[Chain.ARBITRUM_MAINNET][1]]: 'USDC',
   };
 
   return usedVaultsBySymbol[token];

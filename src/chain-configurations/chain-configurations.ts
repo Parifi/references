@@ -5,7 +5,7 @@ import pythStableConfiguration from './pyth-stable-configuration';
 
 const chainConfigurations: Record<number, IPythConfig> = {
   [Chain.ARBITRUM_SEPOLIA]: pythStableConfiguration,
-  [Chain.ARBITRUM_ONE]: pythStableConfiguration,
+  [Chain.ARBITRUM_MAINNET]: pythStableConfiguration,
 };
 
 export default chainConfigurations;

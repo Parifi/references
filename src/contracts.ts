@@ -76,7 +76,7 @@ export const contracts = {
       abi: ArbSepoliaContractsABI.SubgraphHelperABI,
     },
   },
-  [Chain.ARBITRUM_ONE]: {
+  [Chain.ARBITRUM_MAINNET]: {
     Adapter: {
       address: '0xEf4B27677d01e2b3Fb6382a6627e1b625cDc1757',
       abi: ArbSepoliaContractsABI.AdapterABI,
