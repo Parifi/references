@@ -5,6 +5,8 @@ import {
   GelatoABI,
   ArbSepoliaContractsABI,
 } from './abi';
+import { FairSaleAbi } from './abi/FairsaleAbi';
+import { EscrowedPrfAbi } from './abi/EscrowedPrf';
 
 export type ContractName =
   | 'OrderManager'
@@ -72,6 +74,68 @@ export const contracts = {
     SubgraphHelper: {
       addresS: '0x84682F9360ae691Bc9519eabd8889842137A1eCc',
       abi: ArbSepoliaContractsABI.SubgraphHelperABI,
-    }
+    },
+  },
+  [Chain.ARBITRUM_ONE]: {
+    Adapter: {
+      address: '0xEf4B27677d01e2b3Fb6382a6627e1b625cDc1757',
+      abi: ArbSepoliaContractsABI.AdapterABI,
+    },
+    OrderManager: {
+      address: '0xe9976AB03aE60d092ca18009991231fa6b4D68f9',
+      abi: ArbSepoliaContractsABI.OrderManagerABI,
+    },
+    FeeManager: {
+      address: '0x4C590F812EB3ca43Ca6Ea3Ba92C65Ca991B77d94',
+      abi: ArbSepoliaContractsABI.FeeManagerABI,
+    },
+    PriceFeed: {
+      address: '0xb11f733b6A785FE5367d56d147AA0f9573704F31',
+      abi: ArbSepoliaContractsABI.PriceFeedABI,
+    },
+    DataFabric: {
+      address: '0x37e611DadfD420ed802bD01221378E55B9eeFF01',
+      abi: ArbSepoliaContractsABI.DataFabricABI,
+    },
+    ERC20: {
+      address: '',
+      abi: ERC20ABI,
+    },
+    ParifiVault: {
+      address: '',
+      abi: ArbSepoliaContractsABI.ParifiVaultABI,
+    },
+    ParifiForwarder: {
+      address: '0x00774Bd079E54be21716485D5a98C89517754a55',
+      abi: ArbSepoliaContractsABI.ParifiForwarderABI,
+    },
+    Safe: {
+      address: '0x60B03968F6fCB3aaFa13aC6f6277C912AF79822D',
+      abi: GnosisSafeABI,
+    },
+    ParifiUtils: {
+      address: '0xe4B3d30643CB14d7CFf515C4C73BB87b43d931D8',
+      abi: ArbSepoliaContractsABI.ParifiUtilsABI,
+    },
+    Gelato: {
+      address: '0x75ba5af8effdcfca32e1e288806d54277d1fde99',
+      abi: GelatoABI,
+    },
+    RBAC: {
+      address: '0xe821Aab5Cc5C6606194F2AeE3A9146940A73ae60',
+      abi: ArbSepoliaContractsABI.RBACABI,
+    },
+    SubgraphHelper: {
+      address: '0xf012d32505df6853187170F00C7b789A8ecC41c2',
+      abi: ArbSepoliaContractsABI.SubgraphHelperABI,
+    },
+    FairSale: {
+      address: '0x11Da882cFe4102fa4D8A70223A5927D0E9001d16',
+      abi: FairSaleAbi,
+    },
+    EscrowedPRF: {
+      address: '0xfc675adFDd721064ba923D07A8A238A9e52D8aCE',
+      abi: EscrowedPrfAbi,
+    },
   },
 };

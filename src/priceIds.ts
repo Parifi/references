@@ -9,6 +9,7 @@ export const stablePriceIdBySymbol: Record<string, string> = {
   XAG: '0xf2fb02c32b055c805e7238d628e5e9dadef274376114eb1f012337cabe93871e',
   EUR: '0xa995d00bb36a63cef7fd2c287dc105fc8f3d93779f062f09551b0af3e81ec30b',
   GBP: '0x84c2dde9633d93d1bcad84e7dc41c9d56578b7ec52fabedc1f335d673df0a7c1',
+  SOL: '0xef0d8b6fda2ceba41da15d4095d1da392a0d2f8ed0c6c7bc0f4cfac8c280b56d',
 };
 
 export const symbolByStablePriceId: Record<string, string> = Object.entries(
@@ -32,6 +33,7 @@ export const betaPriceIdBySymbol: Record<string, string> = {
   XAG: '0x321ba4d608fa75ba76d6d73daa715abcbdeb9dba02257f05a1b59178b49f599b',
   EUR: '0xc1b12769f6633798d45adfd62bfc70114839232e2949b01fb3d3f927d2606154',
   GBP: '0xbcbdc2755bd74a2065f9d3283c2b8acbd898e473bdb90a6764b3dbd467c56ecd',
+  SOL: '',
 };
 
 export const symbolByBetaPriceId: Record<string, string> = Object.entries(

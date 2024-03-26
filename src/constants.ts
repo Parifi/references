@@ -1,3 +1,4 @@
+import ARBITRUM_ONE_VAULTS from './address/arb-one/vaults';
 import ARBITRUM_SEPOLIA_VAULTS from './address/arb-sepolia/vaults';
 import { Chain } from './chain';
 
@@ -12,6 +13,7 @@ export type SymbolOfMarket =
   | 'XAU'
   | 'XAG'
   | 'EUR'
+  | 'SOL'
   | 'GBP';
 export type Market = {
   symbol: SymbolOfMarket;
@@ -30,12 +32,17 @@ export const markets: Market[] = [
   { symbol: 'XAG', type: 'commodity', name: 'Silver' },
   { symbol: 'EUR', type: 'forex', name: 'Euro' },
   { symbol: 'GBP', type: 'forex', name: 'Sterling Pound' },
+  { symbol: 'SOL', type: 'crypto', name: 'Solana' },
 ];
 
 export const availableVaultsPerChain: Record<Chain, `0x${string}`[]> = {
   [Chain.ARBITRUM_SEPOLIA]: [
     ARBITRUM_SEPOLIA_VAULTS.ETH, // ETH
     ARBITRUM_SEPOLIA_VAULTS.USDC, // USDC
+  ],
+  [Chain.ARBITRUM_ONE]: [
+    ARBITRUM_ONE_VAULTS.ETH, // ETH
+    ARBITRUM_ONE_VAULTS.USDC, // USDC
   ],
 };
 
@@ -47,12 +54,18 @@ export const usedVaultsPerChain: Record<
     ETH: availableVaultsPerChain[Chain.ARBITRUM_SEPOLIA][0],
     USDC: availableVaultsPerChain[Chain.ARBITRUM_SEPOLIA][1],
   },
+  [Chain.ARBITRUM_ONE]: {
+    ETH: availableVaultsPerChain[Chain.ARBITRUM_ONE][0],
+    USDC: availableVaultsPerChain[Chain.ARBITRUM_ONE][1],
+  },
 };
 
 export function usedVaultsByName(token: string): string {
   const usedVaultsByName: Record<string, string> = {
     [availableVaultsPerChain[Chain.ARBITRUM_SEPOLIA][0]]: 'Ethereum',
     [availableVaultsPerChain[Chain.ARBITRUM_SEPOLIA][1]]: 'USD Coin',
+    [availableVaultsPerChain[Chain.ARBITRUM_ONE][1]]: 'USD Coin',
+    [availableVaultsPerChain[Chain.ARBITRUM_ONE][1]]: 'USD Coin',
   };
 
   return usedVaultsByName[token];
@@ -62,6 +75,8 @@ export function usedVaultsBySymbol(token: string): string {
   const usedVaultsBySymbol: Record<string, string> = {
     [availableVaultsPerChain[Chain.ARBITRUM_SEPOLIA][0]]: 'ETH',
     [availableVaultsPerChain[Chain.ARBITRUM_SEPOLIA][1]]: 'USDC',
+    [availableVaultsPerChain[Chain.ARBITRUM_ONE][0]]: 'ETH',
+    [availableVaultsPerChain[Chain.ARBITRUM_ONE][1]]: 'USDC',
   };
 
   return usedVaultsBySymbol[token];
@@ -75,6 +90,7 @@ export const suggestedDecimals: Record<string, number> = {
   MATIC: 4,
   EUR: 4,
   GBP: 4,
+  SOL: 2,
 };
 
 export const collateralDecimals: Record<string, number> = {
@@ -88,4 +104,5 @@ export const collateralDecimals: Record<string, number> = {
   XAG: 18,
   EUR: 8,
   GBP: 8,
+  SOL: 9,
 };
