@@ -1,3 +1,4 @@
 export enum Chain {
   ARBITRUM_SEPOLIA = 421614,
+  ARBITRUM_MAINNET = 42161,
 }
