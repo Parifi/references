@@ -64,7 +64,7 @@ export function usedVaultsByName(token: string): string {
   const usedVaultsByName: Record<string, string> = {
     [availableVaultsPerChain[Chain.ARBITRUM_SEPOLIA][0]]: 'Ethereum',
     [availableVaultsPerChain[Chain.ARBITRUM_SEPOLIA][1]]: 'USD Coin',
-    [availableVaultsPerChain[Chain.ARBITRUM_MAINNET][1]]: 'USD Coin',
+    [availableVaultsPerChain[Chain.ARBITRUM_MAINNET][0]]: 'Ethereum',
     [availableVaultsPerChain[Chain.ARBITRUM_MAINNET][1]]: 'USD Coin',
   };
 

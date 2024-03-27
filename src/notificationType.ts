@@ -18,4 +18,10 @@ export enum NotificationType {
   KYC_APPROVED = 'kyc-approved',
   KYC_REJECTED = 'kyc-rejected',
   ACTIVATE_COOLDOWN = 'activate-cooldown',
+
+  // === staking
+  STAKE = 'stake',
+  UNSTAKE = 'unstake',
+  CLAIM = 'claim',
+  VEST = 'vest',
 }
