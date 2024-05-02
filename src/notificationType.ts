@@ -18,4 +18,5 @@ export enum NotificationType {
   KYC_APPROVED = 'kyc-approved',
   KYC_REJECTED = 'kyc-rejected',
   ACTIVATE_COOLDOWN = 'activate-cooldown',
+  USER_PAYMENT_PROCESSED = 'user-payment-processed',
 }
