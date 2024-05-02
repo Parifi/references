@@ -24,4 +24,5 @@ export enum NotificationType {
   UNSTAKE = 'unstake',
   CLAIM = 'claim',
   VEST = 'vest',
+  USER_PAYMENT_PROCESSED = 'user-payment-processed',
 }
