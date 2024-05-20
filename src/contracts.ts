@@ -4,6 +4,7 @@ import {
   GnosisSafeABI,
   GelatoABI,
   ArbSepoliaContractsABI as ArbContractsABI,
+  SubgraphHelperABI,
 } from './abi';
 import { FairSaleAbi } from './abi/FairsaleAbi';
 import { EscrowedPrfAbi } from './abi/EscrowedPrf';
@@ -127,7 +128,7 @@ export const contracts = {
     },
     SubgraphHelper: {
       address: '0xf012d32505df6853187170F00C7b789A8ecC41c2',
-      abi: ArbContractsABI.SubgraphHelperABI,
+      abi: SubgraphHelperABI,
     },
     FairSale: {
       address: '0x11Da882cFe4102fa4D8A70223A5927D0E9001d16',
