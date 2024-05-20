@@ -11,6 +11,7 @@ import { FeeManagerABI } from './FeeManager';
 import { AdapterABI } from './Adapter';
 import { GelatoABI } from './Gelato';
 import { ParifiUtilsABI } from './ParifiUtils';
+import { SubgraphHelperABI } from './SubgraphHelper';
 import * as ArbSepoliaContractsABI from './arb-sepolia';
 
 export {
@@ -27,5 +28,6 @@ export {
   Multicall,
   ParifiForwarderABI,
   ParifiUtilsABI,
+  SubgraphHelperABI,
   ArbSepoliaContractsABI,
 };
