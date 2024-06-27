@@ -1,291 +1,197 @@
 export const ParifiUtilsABI = [
   {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_orderManager",
-        "type": "address"
-      }
+    inputs: [
+      { internalType: 'address', name: '_orderManager', type: 'address' },
     ],
-    "stateMutability": "nonpayable",
-    "type": "constructor"
+    stateMutability: 'nonpayable',
+    type: 'constructor',
   },
   {
-    "inputs": [
-      {
-        "internalType": "string",
-        "name": "errorMsg",
-        "type": "string"
-      }
-    ],
-    "name": "InvalidRole",
-    "type": "error"
+    inputs: [{ internalType: 'string', name: 'errorMsg', type: 'string' }],
+    name: 'InvalidRole',
+    type: 'error',
   },
   {
-    "anonymous": false,
-    "inputs": [
+    anonymous: false,
+    inputs: [
+      { indexed: true, internalType: 'bytes32', name: 'id', type: 'bytes32' },
       {
-        "indexed": true,
-        "internalType": "bytes32",
-        "name": "id",
-        "type": "bytes32"
+        indexed: false,
+        internalType: 'uint256',
+        name: 'position',
+        type: 'uint256',
+      },
+    ],
+    name: 'BatchExecuteFailed',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      { indexed: true, internalType: 'bytes32', name: 'id', type: 'bytes32' },
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: 'position',
+        type: 'uint256',
+      },
+    ],
+    name: 'BatchExecuteSuccess',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: 'string',
+        name: 'message',
+        type: 'string',
+      },
+    ],
+    name: 'Log',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      { indexed: false, internalType: 'bytes', name: 'message', type: 'bytes' },
+    ],
+    name: 'LogBytes',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'previousOwner',
+        type: 'address',
       },
       {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "position",
-        "type": "uint256"
-      }
-    ],
-    "name": "BatchExecuteFailed",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "bytes32",
-        "name": "id",
-        "type": "bytes32"
+        indexed: true,
+        internalType: 'address',
+        name: 'newOwner',
+        type: 'address',
       },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "position",
-        "type": "uint256"
-      }
     ],
-    "name": "BatchExecuteSuccess",
-    "type": "event"
+    name: 'OwnershipTransferred',
+    type: 'event',
   },
   {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "string",
-        "name": "message",
-        "type": "string"
-      }
+    anonymous: false,
+    inputs: [
+      { indexed: false, internalType: 'bool', name: 'enabled', type: 'bool' },
     ],
-    "name": "Log",
-    "type": "event"
+    name: 'PublicAccess',
+    type: 'event',
   },
   {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "bytes",
-        "name": "message",
-        "type": "bytes"
-      }
-    ],
-    "name": "LogBytes",
-    "type": "event"
+    inputs: [],
+    name: 'allowPublicAccess',
+    outputs: [{ internalType: 'bool', name: '', type: 'bool' }],
+    stateMutability: 'view',
+    type: 'function',
   },
   {
-    "anonymous": false,
-    "inputs": [
+    inputs: [
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "previousOwner",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
-      }
-    ],
-    "name": "OwnershipTransferred",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "bool",
-        "name": "enabled",
-        "type": "bool"
-      }
-    ],
-    "name": "PublicAccess",
-    "type": "event"
-  },
-  {
-    "inputs": [],
-    "name": "allowPublicAccess",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "components": [
-          {
-            "internalType": "bytes32",
-            "name": "id",
-            "type": "bytes32"
-          },
-          {
-            "internalType": "bytes[]",
-            "name": "priceUpdateData",
-            "type": "bytes[]"
-          }
+        components: [
+          { internalType: 'bytes32', name: 'id', type: 'bytes32' },
+          { internalType: 'bytes[]', name: 'priceUpdateData', type: 'bytes[]' },
         ],
-        "internalType": "struct ParifiUtils.BatchExecute[]",
-        "name": "batchedPositions",
-        "type": "tuple[]"
-      }
+        internalType: 'struct ParifiUtils.BatchExecute[]',
+        name: 'batchedPositions',
+        type: 'tuple[]',
+      },
     ],
-    "name": "batchLiquidatePositions",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: 'batchLiquidatePositions',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "components": [
-          {
-            "internalType": "bytes32",
-            "name": "id",
-            "type": "bytes32"
-          },
-          {
-            "internalType": "bytes[]",
-            "name": "priceUpdateData",
-            "type": "bytes[]"
-          }
+        components: [
+          { internalType: 'bytes32', name: 'id', type: 'bytes32' },
+          { internalType: 'bytes[]', name: 'priceUpdateData', type: 'bytes[]' },
         ],
-        "internalType": "struct ParifiUtils.BatchExecute[]",
-        "name": "batchedOrders",
-        "type": "tuple[]"
-      }
-    ],
-    "name": "batchSettleOrders",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "bytes32",
-        "name": "id",
-        "type": "bytes32"
+        internalType: 'struct ParifiUtils.BatchExecute[]',
+        name: 'batchedOrders',
+        type: 'tuple[]',
       },
-      {
-        "internalType": "bytes[]",
-        "name": "priceUpdateData",
-        "type": "bytes[]"
-      }
     ],
-    "name": "liquidatePosition",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: 'batchSettleOrders',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
   },
   {
-    "inputs": [],
-    "name": "orderManager",
-    "outputs": [
-      {
-        "internalType": "contract IOrderManager",
-        "name": "",
-        "type": "address"
-      }
+    inputs: [
+      { internalType: 'bytes32', name: 'id', type: 'bytes32' },
+      { internalType: 'bytes[]', name: 'priceUpdateData', type: 'bytes[]' },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    name: 'liquidatePosition',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
   },
   {
-    "inputs": [],
-    "name": "owner",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
+    inputs: [],
+    name: 'orderManager',
+    outputs: [
+      { internalType: 'contract IOrderManager', name: '', type: 'address' },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: 'view',
+    type: 'function',
   },
   {
-    "inputs": [],
-    "name": "rbac",
-    "outputs": [
-      {
-        "internalType": "contract IRBAC",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
+    inputs: [],
+    name: 'owner',
+    outputs: [{ internalType: 'address', name: '', type: 'address' }],
+    stateMutability: 'view',
+    type: 'function',
   },
   {
-    "inputs": [],
-    "name": "renounceOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    inputs: [],
+    name: 'rbac',
+    outputs: [{ internalType: 'contract IRBAC', name: '', type: 'address' }],
+    stateMutability: 'view',
+    type: 'function',
   },
   {
-    "inputs": [
-      {
-        "internalType": "bytes32",
-        "name": "id",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "bytes[]",
-        "name": "priceUpdateData",
-        "type": "bytes[]"
-      }
-    ],
-    "name": "settleOrder",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    inputs: [],
+    name: 'renounceOwnership',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
   },
   {
-    "inputs": [
-      {
-        "internalType": "bool",
-        "name": "_allowPublicAccess",
-        "type": "bool"
-      }
+    inputs: [
+      { internalType: 'bytes32', name: 'id', type: 'bytes32' },
+      { internalType: 'bytes[]', name: 'priceUpdateData', type: 'bytes[]' },
     ],
-    "name": "togglePublicAccess",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: 'settleOrder',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
   },
   {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
-      }
+    inputs: [
+      { internalType: 'bool', name: '_allowPublicAccess', type: 'bool' },
     ],
-    "name": "transferOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  }
+    name: 'togglePublicAccess',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [{ internalType: 'address', name: 'newOwner', type: 'address' }],
+    name: 'transferOwnership',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
 ] as const;
