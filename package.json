@@ -1,6 +1,6 @@
 {
   "name": "@parifi/references",
-  "version": "1.0.3-prod",
+  "version": "1.0.4-prod",
   "description": "Parifi utilities for working with references for other repos inside of the organization.",
   "private": false,
   "files": [
@@ -24,7 +24,7 @@
     "parifi",
     "references"
   ],
-  "author": "guillermoriv",
+  "author": "Parifi",
   "license": "ISC",
   "devDependencies": {
     "prettier": "^3.0.0",
