@@ -31,7 +31,7 @@ export const ParifiUtilsABI = [
         type: 'bytes32',
       },
       {
-        indexed: true,
+        indexed: false,
         internalType: 'uint256',
         name: 'position',
         type: 'uint256',
@@ -50,7 +50,7 @@ export const ParifiUtilsABI = [
         type: 'bytes32',
       },
       {
-        indexed: true,
+        indexed: false,
         internalType: 'uint256',
         name: 'position',
         type: 'uint256',
@@ -105,6 +105,32 @@ export const ParifiUtilsABI = [
     type: 'event',
   },
   {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: 'bool',
+        name: 'enabled',
+        type: 'bool',
+      },
+    ],
+    name: 'PublicAccess',
+    type: 'event',
+  },
+  {
+    inputs: [],
+    name: 'allowPublicAccess',
+    outputs: [
+      {
+        internalType: 'bool',
+        name: '',
+        type: 'bool',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
     inputs: [
       {
         components: [
@@ -155,6 +181,24 @@ export const ParifiUtilsABI = [
     type: 'function',
   },
   {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'id',
+        type: 'bytes32',
+      },
+      {
+        internalType: 'bytes[]',
+        name: 'priceUpdateData',
+        type: 'bytes[]',
+      },
+    ],
+    name: 'liquidatePosition',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
     inputs: [],
     name: 'orderManager',
     outputs: [
@@ -196,6 +240,37 @@ export const ParifiUtilsABI = [
   {
     inputs: [],
     name: 'renounceOwnership',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'id',
+        type: 'bytes32',
+      },
+      {
+        internalType: 'bytes[]',
+        name: 'priceUpdateData',
+        type: 'bytes[]',
+      },
+    ],
+    name: 'settleOrder',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bool',
+        name: '_allowPublicAccess',
+        type: 'bool',
+      },
+    ],
+    name: 'togglePublicAccess',
     outputs: [],
     stateMutability: 'nonpayable',
     type: 'function',

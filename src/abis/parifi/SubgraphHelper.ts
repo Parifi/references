@@ -27,7 +27,11 @@ export const SubgraphHelperABI = [
   },
   {
     inputs: [
-      { internalType: 'bytes32[]', name: 'orderIds', type: 'bytes32[]' },
+      {
+        internalType: 'bytes32[]',
+        name: 'orderIds',
+        type: 'bytes32[]',
+      },
     ],
     name: 'triggerOrderUpdate',
     outputs: [],
@@ -36,7 +40,11 @@ export const SubgraphHelperABI = [
   },
   {
     inputs: [
-      { internalType: 'bytes32[]', name: 'positionIds', type: 'bytes32[]' },
+      {
+        internalType: 'bytes32[]',
+        name: 'positionIds',
+        type: 'bytes32[]',
+      },
     ],
     name: 'triggerPositionUpdate',
     outputs: [],

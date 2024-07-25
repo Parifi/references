@@ -5,9 +5,9 @@ import {
   GelatoABI,
   ArbSepoliaContractsABI as ArbContractsABI,
   SubgraphHelperABI,
-} from './abi';
-import { FairSaleAbi } from './abi/FairsaleAbi';
-import { EscrowedPrfAbi } from './abi/EscrowedPrf';
+} from './abis/parifi';
+import { FairSaleAbi } from './abis/parifi/FairsaleAbi';
+import { EscrowedPrfAbi } from './abis/parifi/EscrowedPrf';
 
 export type ContractName =
   | 'OrderManager'

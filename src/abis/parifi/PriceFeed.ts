@@ -1,4 +1,4 @@
-export const ParifiForwarderABI = [
+export const PriceFeedABI = [
   {
     inputs: [
       {
@@ -566,6 +566,26 @@ export const ParifiForwarderABI = [
       },
     ],
     stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: '_token',
+        type: 'address',
+      },
+    ],
+    name: 'recoverERC20',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'recoverETH',
+    outputs: [],
+    stateMutability: 'nonpayable',
     type: 'function',
   },
   {

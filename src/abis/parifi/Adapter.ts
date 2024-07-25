@@ -104,80 +104,21 @@ export const AdapterABI = [
   {
     inputs: [
       {
-        internalType: 'uint256',
-        name: 'currentPrice',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'deltaSize',
-        type: 'uint256',
-      },
-      {
-        internalType: 'bytes32',
-        name: 'marketId',
-        type: 'bytes32',
-      },
-      {
-        internalType: 'bool',
-        name: 'isLong',
-        type: 'bool',
-      },
-      {
-        internalType: 'bool',
-        name: 'isIncrease',
-        type: 'bool',
-      },
-    ],
-    name: 'getAvgPriceWithDeviation',
-    outputs: [
-      {
-        internalType: 'uint256',
-        name: 'updatedPrice',
-        type: 'uint256',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
         internalType: 'bytes32',
         name: 'positionId',
         type: 'bytes32',
       },
       {
         internalType: 'uint256',
-        name: 'executionPrice',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'fee',
+        name: 'marketPrice',
         type: 'uint256',
       },
     ],
-    name: 'getClosingNetPNLInUsd',
+    name: 'getClosingNetPNLInCollateral',
     outputs: [
       {
         internalType: 'uint256',
-        name: 'netProfitOrLossUsd',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'pnlInUsd',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'feeInUsd',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: 'accruedBorrowFeesUsd',
+        name: 'netProfitOrLoss',
         type: 'uint256',
       },
       {
@@ -198,7 +139,70 @@ export const AdapterABI = [
       },
       {
         internalType: 'uint256',
-        name: 'executionPrice',
+        name: 'marketPrice',
+        type: 'uint256',
+      },
+    ],
+    name: 'getCurrentLeverage',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'leverage',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'netProfitOrLoss',
+        type: 'uint256',
+      },
+      {
+        internalType: 'bool',
+        name: 'isNetProfit',
+        type: 'bool',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'positionId',
+        type: 'bytes32',
+      },
+      {
+        internalType: 'uint256',
+        name: 'marketPrice',
+        type: 'uint256',
+      },
+    ],
+    name: 'getCurrentNetPNLInCollateral',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'netProfitOrLoss',
+        type: 'uint256',
+      },
+      {
+        internalType: 'bool',
+        name: 'isNetProfit',
+        type: 'bool',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'positionId',
+        type: 'bytes32',
+      },
+      {
+        internalType: 'uint256',
+        name: 'marketPrice',
         type: 'uint256',
       },
     ],
@@ -232,7 +236,7 @@ export const AdapterABI = [
       },
       {
         internalType: 'uint256',
-        name: 'size',
+        name: 'deltaSize',
         type: 'uint256',
       },
       {
@@ -242,13 +246,8 @@ export const AdapterABI = [
       },
       {
         internalType: 'uint256',
-        name: 'executionPrice',
+        name: 'marketPrice',
         type: 'uint256',
-      },
-      {
-        internalType: 'enum OrderDS.OrderType',
-        name: 'orderType',
-        type: 'uint8',
       },
     ],
     name: 'getNetPNLInCollateral',
@@ -256,6 +255,60 @@ export const AdapterABI = [
       {
         internalType: 'uint256',
         name: 'netProfitOrLoss',
+        type: 'uint256',
+      },
+      {
+        internalType: 'bool',
+        name: 'isNetProfit',
+        type: 'bool',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'positionId',
+        type: 'bytes32',
+      },
+      {
+        internalType: 'uint256',
+        name: 'deltaSize',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'fee',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'marketPrice',
+        type: 'uint256',
+      },
+    ],
+    name: 'getNetPNLInUsd',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'netProfitOrLossUsd',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'pnlInUsd',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'feeInUsd',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'accruedBorrowFeesUsd',
         type: 'uint256',
       },
       {
@@ -307,6 +360,11 @@ export const AdapterABI = [
         internalType: 'bool',
         name: 'isIncrease',
         type: 'bool',
+      },
+      {
+        internalType: 'uint256',
+        name: 'deltaSize',
+        type: 'uint256',
       },
     ],
     name: 'getPriceWithDeviation',

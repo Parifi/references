@@ -1,8 +1,8 @@
 import { OrderManagerABI } from './OrderManager';
 import { PriceFeedABI } from './PriceFeed';
 import { ParifiVaultABI } from './ParifiVault';
-import { GnosisFactoryABI } from './GnosisFactory';
-import { GnosisSafeABI } from './GnosisSafe';
+import { GnosisFactoryABI } from '../safe/GnosisFactory';
+import { GnosisSafeABI } from '../safe/GnosisSafe';
 import { Multicall } from './Multicall';
 import { ERC20ABI } from './ERC20';
 import { ParifiForwarderABI } from './ParifiForwarder';
@@ -12,7 +12,6 @@ import { AdapterABI } from './Adapter';
 import { GelatoABI } from './Gelato';
 import { ParifiUtilsABI } from './ParifiUtils';
 import { SubgraphHelperABI } from './SubgraphHelper';
-import * as ArbSepoliaContractsABI from './arb-sepolia';
 
 export {
   FeeManagerABI,
@@ -29,5 +28,4 @@ export {
   ParifiForwarderABI,
   ParifiUtilsABI,
   SubgraphHelperABI,
-  ArbSepoliaContractsABI,
 };

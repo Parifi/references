@@ -1,4 +1,4 @@
-export * from './abi';
+export * from './abis/parifi';
 export * from './chain';
 export * from './contracts';
 export * from './orderType';
