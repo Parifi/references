@@ -1,23 +1,4 @@
-let MARKET_ID_BY_NAME = new Map<string, string>();
-let MARKET_NAME_BY_ID = new Map<string, string>();
-
-// PYTH
-// Values taken from https://pyth.network/developers/price-feed-ids#pyth-evm-stable
-export const PYTH_PRICE_ID_ETH = '0xff61491a931112ddf1bd8147cd1b641375f79f5825126d665480874634fd0ace';
-export const PYTH_PRICE_ID_BTC = '0xe62df6c8b4a85fe1a67db44dc12de5db330f7ac66b72dc658afedf0f4a415b43';
-export const PYTH_PRICE_ID_LINK = '0x8ac0c70fff57e9aefdf5edf44b51d62c2d433653cbb2cf5cc06bb115af04d221';
-export const PYTH_PRICE_ID_MATIC = '0x5de33a9112c2b700b8d30b8a3402c103578ccfa2765696471cc672bd5cf6ac52';
-export const PYTH_PRICE_ID_ARB = '0x3fa4252848f9f0a1480be62745a4629d9eb1322aebab8a791e344b3b9c1adcf5';
-export const PYTH_PRICE_ID_BNB = '0x2f95862b045670cd22bee3114c39763a4a08beeb663b145d283c31d7d1101c4f';
-export const PYTH_PRICE_ID_OP = '0x385f64d993f7b77d8182ed5003d97c60aa3361f3cecfe711544d2d59165e9bdf';
-export const PYTH_PRICE_ID_AVAX = '0x93da3352f9f1d105fdfe4971cfa80e9dd777bfc5d0f683ebb6e1294b92137bb7';
-export const PYTH_PRICE_ID_USDC = '0xeaa020c61cc479712813461ce153894a96a6c00b21ed0cfc2798d1f9a9e9c94a';
-export const PYTH_PRICE_ID_GMX = '0xb962539d0fcb272a494d65ea56f94851c2bcf8823935da05bd628916e2e9edbf';
-export const PYTH_PRICE_ID_SOL = '0xef0d8b6fda2ceba41da15d4095d1da392a0d2f8ed0c6c7bc0f4cfac8c280b56d';
-export const PYTH_PRICE_ID_XAU = '0x765d2ba906dbc32ca17cc11f5310a89e9ee1f6420508c63861f2f8ba4ee34bb2';
-export const PYTH_PRICE_ID_EUR = '0xa995d00bb36a63cef7fd2c287dc105fc8f3d93779f062f09551b0af3e81ec30b';
-
-// Market Ids
+// Deployed Market Ids
 export const MARKET_ID_SOL_USDC = '0x28666630a970d8dbae0b9d20f6cb64b97e64544e34b488a36fb954f557dd49fe';
 export const MARKET_ID_SOL_ETH = '0x0a821cf0ad5d267a74900088065b4554dd5280601249073156d5e9da737c12d1';
 
@@ -38,6 +19,9 @@ export const MARKET_ID_BTC_ETH = '0x163959ee3c7c7d786d9f24440475143f88c9169206a6
 
 export const MARKET_ID_LINK_USDC = '0x238bd50821e428cbab036d2b01ba7a4c61d1afa91d2e7178bd7810ea73e9d5fd';
 export const MARKET_ID_LINK_ETH = '0xc418deb78abe042abf117f1217b5f7955a532c57ebc5e9d419aaa77301c67e4c';
+
+let MARKET_ID_BY_NAME = new Map<string, string>();
+let MARKET_NAME_BY_ID = new Map<string, string>();
 
 /////////////////////////////////////////////
 //              MARKET_ID_BY_NAME
@@ -76,3 +60,58 @@ MARKET_NAME_BY_ID.set(MARKET_ID_LINK_USDC, 'LINK-USDC');
 MARKET_NAME_BY_ID.set(MARKET_ID_LINK_ETH, 'LINK-ETH');
 
 export { MARKET_ID_BY_NAME, MARKET_NAME_BY_ID };
+
+// Used to identify the type of market
+export type TypeOfMarket = 'crypto' | 'forex' | 'stock' | 'commodity';
+
+export type SymbolOfMarket = 'ETH' | 'BTC' | 'LINK' | 'ARB' | 'OP' | 'MATIC' | 'XAU' | 'XAG' | 'EUR' | 'SOL' | 'GBP';
+
+export type MarketInfo = {
+  symbol: SymbolOfMarket;
+  type: TypeOfMarket;
+  name: string;
+};
+
+// Relevant information for display on the interface
+export const marketInfos: MarketInfo[] = [
+  { symbol: 'ETH', type: 'crypto', name: 'Ethereum' },
+  { symbol: 'BTC', type: 'crypto', name: 'Bitcoin' },
+  { symbol: 'LINK', type: 'crypto', name: 'Chainlink' },
+  { symbol: 'ARB', type: 'crypto', name: 'Arbitrum' },
+  { symbol: 'OP', type: 'crypto', name: 'Optimism' },
+  { symbol: 'MATIC', type: 'crypto', name: 'Polygon' },
+  { symbol: 'SOL', type: 'crypto', name: 'Solana' },
+  { symbol: 'XAU', type: 'commodity', name: 'Gold' },
+  { symbol: 'XAG', type: 'commodity', name: 'Silver' },
+  { symbol: 'EUR', type: 'forex', name: 'Euro' },
+  { symbol: 'GBP', type: 'forex', name: 'Sterling Pound' },
+];
+
+// Price Precision (Number of decimal digits to format) to display the values on interface
+// For example, for ETH prices, we use 2 digits of precision i.e $3500.26
+// while for EUR we use 4 digits of precision i.e $1.0481
+export const pricePrecision: Record<string, number> = {
+  ETH: 2,
+  BTC: 2,
+  LINK: 4,
+  ARB: 4,
+  MATIC: 4,
+  EUR: 4,
+  GBP: 4,
+  SOL: 2,
+};
+
+// Number of decimal digits for collaterals for formatting values
+export const collateralDecimals: Record<string, number> = {
+  ETH: 18,
+  USDC: 6,
+  BTC: 8,
+  LINK: 18,
+  ARB: 18,
+  MATIC: 18,
+  XAU: 18,
+  XAG: 18,
+  EUR: 8,
+  GBP: 8,
+  SOL: 9,
+};
