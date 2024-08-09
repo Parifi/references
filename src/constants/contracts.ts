@@ -11,8 +11,7 @@ export type ContractName =
   | 'ERC20'
   | 'Safe'
   | 'Adapter'
-  | 'ParifiVault'
-  | 'Gelato';
+  | 'ParifiVault';
 
 export const contracts = {
   [Chain.ARBITRUM_MAINNET]: {
