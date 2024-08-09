@@ -25,4 +25,6 @@ export enum NotificationType {
   CLAIM = 'claim',
   VEST = 'vest',
   USER_PAYMENT_PROCESSED = 'user-payment-processed',
+  // === swap
+  SWAP = 'swap',
 }
