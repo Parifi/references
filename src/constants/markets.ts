@@ -64,7 +64,7 @@ export { MARKET_ID_BY_NAME, MARKET_NAME_BY_ID };
 // Used to identify the type of market
 export type TypeOfMarket = 'crypto' | 'forex' | 'stock' | 'commodity';
 
-export type SymbolOfMarket = 'ETH' | 'BTC' | 'LINK' | 'ARB' | 'OP' | 'MATIC' | 'XAU' | 'XAG' | 'EUR' | 'SOL' | 'GBP';
+export type SymbolOfMarket = 'ETH' | 'BTC' | 'LINK' | 'ARB' | 'OP' | 'POL' | 'XAU' | 'XAG' | 'EUR' | 'SOL' | 'GBP';
 
 export type MarketInfo = {
   symbol: SymbolOfMarket;
@@ -79,7 +79,7 @@ export const marketInfos: MarketInfo[] = [
   { symbol: 'LINK', type: 'crypto', name: 'Chainlink' },
   { symbol: 'ARB', type: 'crypto', name: 'Arbitrum' },
   { symbol: 'OP', type: 'crypto', name: 'Optimism' },
-  { symbol: 'MATIC', type: 'crypto', name: 'Polygon' },
+  { symbol: 'POL', type: 'crypto', name: 'Polygon' },
   { symbol: 'SOL', type: 'crypto', name: 'Solana' },
   { symbol: 'XAU', type: 'commodity', name: 'Gold' },
   { symbol: 'XAG', type: 'commodity', name: 'Silver' },
@@ -95,7 +95,7 @@ export const pricePrecision: Record<string, number> = {
   BTC: 2,
   LINK: 4,
   ARB: 4,
-  MATIC: 4,
+  POL: 4,
   EUR: 4,
   GBP: 4,
   SOL: 2,
@@ -108,7 +108,7 @@ export const collateralDecimals: Record<string, number> = {
   BTC: 8,
   LINK: 18,
   ARB: 18,
-  MATIC: 18,
+  POL: 18,
   XAU: 18,
   XAG: 18,
   EUR: 8,
